@@ -1,5 +1,5 @@
 --Begin Tools.lua :)
-local SUDO = 157059515 -- put Your ID here! <===
+local SUDO = 285858337 -- put Your ID here! <===
 function exi_files(cpath)
     local files = {}
     local pth = cpath
@@ -536,10 +536,8 @@ end
 local function run(msg, matches)
 local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
-local Chash = "cmd_lang:"..msg.to.id
-local Clang = redis:get(Chash)
  if tonumber(msg.from.id) == SUDO then
-if ((matches[1] == "clear cache" and not Clang) or (matches[1] == "پاک کردن حافظه" and Clang)) then
+if matches[1] == "clear cache" then
      run_bash("rm -rf ~/.telegram-cli/data/sticker/*")
      run_bash("rm -rf ~/.telegram-cli/data/photo/*")
      run_bash("rm -rf ~/.telegram-cli/data/animation/*")
@@ -551,10 +549,9 @@ if ((matches[1] == "clear cache" and not Clang) or (matches[1] == "پاک کرد
      run_bash("rm -rf ~/.telegram-cli/data/document/*")
      run_bash("rm -rf ~/.telegram-cli/data/profile_photo/*")
      run_bash("rm -rf ~/.telegram-cli/data/encrypted/*")
-	 run_bash("rm -rf ./data/photos/*")
     return "*All Cache Has Been Cleared*"
    end
-if ((matches[1] == "visudo" and not Clang) or (matches[1] == "سودو" and Clang)) then
+if matches[1] == "visudo" then
 if not matches[2] and msg.reply_id then
     tdcli_function ({
       ID = "GetMessage",
@@ -575,7 +572,7 @@ tdcli_function ({
     }, action_by_username, {chat_id=msg.to.id,username=matches[2],cmd="visudo"})
       end
    end
-if ((matches[1] == "desudo" and not Clang) or (matches[1] == "حذف سودو" and Clang)) then
+if matches[1] == "desudo" then
 if not matches[2] and msg.reply_id then
     tdcli_function ({
       ID = "GetMessage",
@@ -597,11 +594,8 @@ tdcli_function ({
       end
    end
 end
-		if ((matches[1] == "config" and not Clang) or (matches[1] == "پیکربندی" and Clang)) and is_admin(msg) then
-			return set_config(msg)
-		end
 if is_sudo(msg) then
-   		if ((matches[1]:lower() == 'add' and not Clang) or (matches[1] == "افزودن" and Clang)) and not redis:get('ExpireDate:'..msg.to.id) then
+   		if matches[1]:lower() == 'add' and not redis:get('ExpireDate:'..msg.to.id) then
 			redis:set('ExpireDate:'..msg.to.id,true)
 			redis:setex('ExpireDate:'..msg.to.id, 180, true)
 				if not redis:get('CheckExpire::'..msg.to.id) then
@@ -613,16 +607,16 @@ if is_sudo(msg) then
 					tdcli.sendMessage(msg.to.id, msg.id_, 1, '_Group charged 3 minutes  for settings._', 1, 'md')
 				end
 		end
-		if ((matches[1] == 'rem' and not Clang) or (matches[1] == "حذف گروه" and Clang)) then
+		if matches[1] == 'rem' then
 			if redis:get('CheckExpire::'..msg.to.id) then
 				redis:del('CheckExpire::'..msg.to.id)
 			end
 			redis:del('ExpireDate:'..msg.to.id)
 		end
-		if ((matches[1]:lower() == 'gid' and not Clang) or (matches[1] == "اطلاعات" and Clang)) then
+		if matches[1]:lower() == 'gid' then
 			tdcli.sendMessage(msg.to.id, msg.id_, 1, '`'..msg.to.id..'`', 1,'md')
 		end
-		if ((matches[1] == 'leave' and not Clang) or (matches[1] == "خروج" and Clang)) and matches[2] then
+		if matches[1] == 'ترک' and matches[2] then
 			if lang then
 				tdcli.sendMessage(matches[2], 0, 1, 'ربات با دستور سودو از گروه خارج شد.\nبرای اطلاعات بیشتر با سودو تماس بگیرید.', 1, 'md')
 				tdcli.changeChatMemberStatus(matches[2], our_id, 'Left', dl_cb, nil)
@@ -633,7 +627,7 @@ if is_sudo(msg) then
 				tdcli.sendMessage(SUDO, msg.id_, 1, '*Robot left from under group successfully:*\n\n`'..matches[2]..'`', 1,'md')
 			end
 		end
-		if ((matches[1]:lower() == 'charge' and not Clang) or (matches[1] == "شارژ" and Clang)) and matches[2] and matches[3] then
+		if matches[1]:lower() == 'charge' and matches[2] and matches[3] then
 		if string.match(matches[2], '^-%d+$') then
 			if tonumber(matches[3]) > 0 and tonumber(matches[3]) < 1001 then
 				local extime = (tonumber(matches[3]) * 86400)
@@ -657,8 +651,7 @@ if is_sudo(msg) then
 			end
 		end
 		end
-		if ((matches[1]:lower() == 'plan' and not Clang) or (matches[1] == "پلن" and Clang)) then 
-		if matches[2] == '1' and matches[3] then
+		if matches[1]:lower() == 'plan' and matches[2] == '1' and matches[3] then
 		if string.match(matches[3], '^-%d+$') then
 			local timeplan1 = 2592000
 			redis:setex('ExpireDate:'..matches[3], timeplan1, true)
@@ -674,7 +667,7 @@ if is_sudo(msg) then
 			end
 		end
 		end
-		if matches[2] == '2' and matches[3] then
+		if matches[1]:lower() == 'plan' and matches[2] == '2' and matches[3] then
 		if string.match(matches[3], '^-%d+$') then
 			local timeplan2 = 7776000
 			redis:setex('ExpireDate:'..matches[3],timeplan2,true)
@@ -690,7 +683,7 @@ if is_sudo(msg) then
 			end
 		end
 		end
-		if matches[2] == '3' and matches[3] then
+		if matches[1]:lower() == 'plan' and matches[2] == '3' and matches[3] then
 		if string.match(matches[3], '^-%d+$') then
 			redis:set('ExpireDate:'..matches[3],true)
 			if not redis:get('CheckExpire::'..msg.to.id) then
@@ -705,8 +698,7 @@ if is_sudo(msg) then
 			end
 		end
 		end
-		end
-		if ((matches[1]:lower() == 'jointo' and not Clang) or (matches[1] == "ورود به" and Clang)) and matches[2] then
+		if matches[1]:lower() == 'jointo' and matches[2] then
 		if string.match(matches[2], '^-%d+$') then
 			if lang then
 				tdcli.sendMessage(SUDO, msg.id_, 1, 'با موفقیت تورو به گروه '..matches[2]..' اضافه کردم.', 1, 'md')
@@ -720,7 +712,7 @@ if is_sudo(msg) then
 		end
 		end
 end
-	if ((matches[1]:lower() == 'savefile' and not Clang) or (matches[1] == "ذخیره فایل" and Clang)) and matches[2] and is_sudo(msg) then
+	if matches[1]:lower() == 'savefile' and matches[2] and is_sudo(msg) then
 		if msg.reply_id  then
 			local folder = matches[2]
             function get_filemsg(arg, data)
@@ -896,7 +888,7 @@ end
         end
     end
 	if msg.to.type == 'channel' or msg.to.type == 'chat' then
-		if ((matches[1] == 'charge' and not Clang) or (matches[1] == "شارژ" and Clang)) and matches[2] and not matches[3] and is_sudo(msg) then
+		if matches[1] == 'شارژ' and matches[2] and not matches[3] and is_sudo(msg) then
 			if tonumber(matches[2]) > 0 and tonumber(matches[2]) < 1001 then
 				local extime = (tonumber(matches[2]) * 86400)
 				redis:setex('ExpireDate:'..msg.to.id, extime, true)
@@ -918,106 +910,44 @@ end
 				end
 			end
 		end
-		if ((matches[1]:lower() == 'check' and not Clang) or (matches[1] == "اعتبار" and Clang)) and is_mod(msg) and not matches[2] then
-			local check_time = redis:ttl('ExpireDate:'..msg.to.id)
-			year = math.floor(check_time / 31536000)
-			byear = check_time % 31536000
-			month = math.floor(byear / 2592000)
-			bmonth = byear % 2592000
-			day = math.floor(bmonth / 86400)
-			bday = bmonth % 86400
-			hours = math.floor( bday / 3600)
-			bhours = bday % 3600
-			min = math.floor(bhours / 60)
-			sec = math.floor(bhours % 60)
-			if not lang then
-				if check_time == -1 then
-					remained_expire = '_Unlimited Charging!_'
-				elseif tonumber(check_time) > 1 and check_time < 60 then
-					remained_expire = '_Expire until_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 60 and check_time < 3600 then
-					remained_expire = '_Expire until_ '..min..' _min_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 3600 and tonumber(check_time) < 86400 then
-					remained_expire = '_Expire until_ *'..hours..'* _hour_ *'..min..'* _min_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 86400 and tonumber(check_time) < 2592000 then
-					remained_expire = '_Expire until_ *'..day..'* _day_ *'..hours..'* _hour_ *'..min..'* _min_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 2592000 and tonumber(check_time) < 31536000 then
-					remained_expire = '_Expire until_ *'..month..'* _month_ *'..day..'* _day_ *'..hours..'* _hour_ *'..min..'* _min_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 31536000 then
-					remained_expire = '_Expire until_ *'..year..'* _year_ *'..month..'* _month_ *'..day..'* _day_ *'..hours..'* _hour_ *'..min..'* _min_ *'..sec..'* _sec_'
+		if matches[1]:lower() == 'تاریخ انقضا' and is_mod(msg) and not matches[2] then
+			local expi = redis:ttl('ExpireDate:'..msg.to.id)
+			if expi == -1 then
+				if lang then
+					tdcli.sendMessage(msg.to.id, msg.id_, 1, '_گروه به صورت نامحدود شارژ میباشد!_', 1, 'md')
+				else
+					tdcli.sendMessage(msg.to.id, msg.id_, 1, '_Unlimited Charging!_', 1, 'md')
 				end
-				tdcli.sendMessage(msg.to.id, msg.id_, 1, remained_expire, 1, 'md')
 			else
-				if check_time == -1 then
-					remained_expire = '_گروه به صورت نامحدود شارژ میباشد!_'
-				elseif tonumber(check_time) > 1 and check_time < 60 then
-					remained_expire = '_گروه به مدت_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 60 and check_time < 3600 then
-					remained_expire = '_گروه به مدت_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 3600 and tonumber(check_time) < 86400 then
-					remained_expire = '_گروه به مدت_ *'..hours..'* _ساعت و_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 86400 and tonumber(check_time) < 2592000 then
-					remained_expire = '_گروه به مدت_ *'..day..'* _روز و_ *'..hours..'* _ساعت و_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 2592000 and tonumber(check_time) < 31536000 then
-					remained_expire = '_گروه به مدت_ *'..month..'* _ماه_ *'..day..'* _روز و_ *'..hours..'* _ساعت و_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 31536000 then
-					remained_expire = '_گروه به مدت_ *'..year..'* _سال_ *'..month..'* _ماه_ *'..day..'* _روز و_ *'..hours..'* _ساعت و_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
+				local day = math.floor(expi / 86400) + 1
+				if lang then
+					tdcli.sendMessage(msg.to.id, msg.id_, 1, day..' روز تا اتما شارژ گروه باقی مانده است.', 1, 'md')
+				else
+					tdcli.sendMessage(msg.to.id, msg.id_, 1, '`'..day..'` *Day(s) remaining until Expire.*', 1, 'md')
 				end
-				tdcli.sendMessage(msg.to.id, msg.id_, 1, remained_expire, 1, 'md')
 			end
+		end
+		if matches[1] == 'تاریخ انقضا' and is_mod(msg) and matches[2] then
+		if string.match(matches[2], '^-%d+$') then
+			local expi = redis:ttl('ExpireDate:'..matches[2])
+			if expi == -1 then
+				if lang then
+					tdcli.sendMessage(msg.to.id, msg.id_, 1, '_گروه به صورت نامحدود شارژ میباشد!_', 1, 'md')
+				else
+					tdcli.sendMessage(msg.to.id, msg.id_, 1, '_Unlimited Charging!_', 1, 'md')
+				end
+			else
+				local day = math.floor(expi / 86400 ) + 1
+				if lang then
+					tdcli.sendMessage(msg.to.id, msg.id_, 1, day..' روز تا اتما شارژ گروه باقی مانده است.', 1, 'md')
+				else
+					tdcli.sendMessage(msg.to.id, msg.id_, 1, '`'..day..'` *Day(s) remaining until Expire.*', 1, 'md')
+				end
+			end
+		end
 		end
 	end
-	if ((matches[1] == 'check' and not Clang) or (matches[1] == "اعتبار" and Clang)) and is_mod(msg) and matches[2] then
-		if string.match(matches[2], '^-%d+$') then
-			local check_time = redis:ttl('ExpireDate:'..matches[2])
-			year = math.floor(check_time / 31536000)
-			byear = check_time % 31536000
-			month = math.floor(byear / 2592000)
-			bmonth = byear % 2592000
-			day = math.floor(bmonth / 86400)
-			bday = bmonth % 86400
-			hours = math.floor( bday / 3600)
-			bhours = bday % 3600
-			min = math.floor(bhours / 60)
-			sec = math.floor(bhours % 60)
-			if not lang then
-				if check_time == -1 then
-					remained_expire = '_Unlimited Charging!_'
-				elseif tonumber(check_time) > 1 and check_time < 60 then
-					remained_expire = '_Expire until_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 60 and check_time < 3600 then
-					remained_expire = '_Expire until_ '..min..' _min_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 3600 and tonumber(check_time) < 86400 then
-					remained_expire = '_Expire until_ *'..hours..'* _hour_ *'..min..'* _min_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 86400 and tonumber(check_time) < 2592000 then
-					remained_expire = '_Expire until_ *'..day..'* _day_ *'..hours..'* _hour_ *'..min..'* _min_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 2592000 and tonumber(check_time) < 31536000 then
-					remained_expire = '_Expire until_ *'..month..'* _month_ *'..day..'* _day_ *'..hours..'* _hour_ *'..min..'* _min_ *'..sec..'* _sec_'
-				elseif tonumber(check_time) > 31536000 then
-					remained_expire = '_Expire until_ *'..year..'* _year_ *'..month..'* _month_ *'..day..'* _day_ *'..hours..'* _hour_ *'..min..'* _min_ *'..sec..'* _sec_'
-				end
-				tdcli.sendMessage(msg.to.id, msg.id_, 1, remained_expire, 1, 'md')
-			else
-				if check_time == -1 then
-					remained_expire = '_گروه به صورت نامحدود شارژ میباشد!_'
-				elseif tonumber(check_time) > 1 and check_time < 60 then
-					remained_expire = '_گروه به مدت_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 60 and check_time < 3600 then
-					remained_expire = '_گروه به مدت_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 3600 and tonumber(check_time) < 86400 then
-					remained_expire = '_گروه به مدت_ *'..hours..'* _ساعت و_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 86400 and tonumber(check_time) < 2592000 then
-					remained_expire = '_گروه به مدت_ *'..day..'* _روز و_ *'..hours..'* _ساعت و_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 2592000 and tonumber(check_time) < 31536000 then
-					remained_expire = '_گروه به مدت_ *'..month..'* _ماه_ *'..day..'* _روز و_ *'..hours..'* _ساعت و_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
-				elseif tonumber(check_time) > 31536000 then
-					remained_expire = '_گروه به مدت_ *'..year..'* _سال_ *'..month..'* _ماه_ *'..day..'* _روز و_ *'..hours..'* _ساعت و_ *'..min..'* _دقیقه و_ *'..sec..'* _ثانیه شارژ میباشد_'
-				end
-				tdcli.sendMessage(msg.to.id, msg.id_, 1, remained_expire, 1, 'md')
-			end
-		end
-		end
-if ((matches[1] == "adminprom" and not Clang) or (matches[1] == "ادمین" and Clang)) and is_sudo(msg) then
+if matches[1] == "adminprom" and is_sudo(msg) then
 if not matches[2] and msg.reply_id then
     tdcli_function ({
       ID = "GetMessage",
@@ -1038,7 +968,7 @@ tdcli_function ({
     }, action_by_username, {chat_id=msg.to.id,username=matches[2],cmd="adminprom"})
       end
    end
-if ((matches[1] == "admindem" and not Clang) or (matches[1] == "حذف ادمین" and Clang)) and is_sudo(msg) then
+if matches[1] == "admindem" and is_sudo(msg) then
 if not matches[2] and msg.reply_id then
     tdcli_function ({
       ID = "GetMessage",
@@ -1060,7 +990,7 @@ tdcli_function ({
       end
    end
 
-if ((matches[1] == 'creategroup' and not Clang) or (matches[1] == "ساخت گروه" and Clang)) and is_admin(msg) then
+if matches[1] == 'creategroup' and is_admin(msg) then
 local text = matches[2]
 tdcli.createNewGroupChat({[0] = msg.from.id}, text, dl_cb, nil)
   if not lang then
@@ -1070,17 +1000,17 @@ return '_گروه ساخته شد!_'
    end
 end
 
-if ((matches[1] == 'createsuper' and not Clang) or (matches[1] == "ساخت سوپرگروه" and Clang)) and is_admin(msg) then
+if matches[1] == 'createsuper' and is_admin(msg) then
 local text = matches[2]
-tdcli.createNewChannelChat(text, 1, '@BeyondTeam', (function(b, d) tdcli.addChatMember(d.id_, msg.from.id, 0, dl_cb, nil) end), nil)
+tdcli.createNewChannelChat(text, 1, '', dl_cb, nil)
    if not lang then 
-return '_SuperGroup Has Been Created and_ [`'..msg.from.id..'`] _Joined To This SuperGroup._'
+return '_SuperGroup Has Been Created!_'
   else
-return '_سوپرگروه ساخته شد و_ [`'..msg.from.id..'`] _به گروه اضافه شد._'
+return '_سوپر گروه ساخته شد!_'
    end
 end
 
-if ((matches[1] == 'tosuper' and not Clang) or (matches[1] == "تبدیل به سوپرگروه" and Clang)) and is_admin(msg) then
+if matches[1] == 'tosuper' and is_admin(msg) then
 local id = msg.to.id
 tdcli.migrateGroupChatToChannelChat(id, dl_cb, nil)
   if not lang then
@@ -1090,22 +1020,16 @@ return '_گروه به سوپر گروه تبدیل شد!_'
    end
 end
 
-if ((matches[1] == 'import' and not Clang) or (matches[1] == "ورود لینک" and Clang)) and is_admin(msg) then
-if matches[2]:match("^([https?://w]*.?telegram.me/joinchat/.*)$") or matches[2]:match("^([https?://w]*.?t.me/joinchat/.*)$") then
-local link = matches[2]
-if link:match('t.me') then
-link = string.gsub(link, 't.me', 'telegram.me')
-end
-tdcli.importChatInviteLink(link, dl_cb, nil)
+if matches[1] == 'import' and is_admin(msg) then
+tdcli.importChatInviteLink(matches[2])
    if not lang then
 return '*Done!*'
   else
 return '*انجام شد!*'
   end
-  end
 end
 
-if ((matches[1] == 'setbotname' and not Clang) or (matches[1] == "تغییر نام ربات" and Clang)) and is_sudo(msg) then
+if matches[1] == 'setbotname' and is_sudo(msg) then
 tdcli.changeName(matches[2])
    if not lang then
 return '_Bot Name Changed To:_ *'..matches[2]..'*'
@@ -1114,7 +1038,7 @@ return '_اسم ربات تغییر کرد به:_ \n*'..matches[2]..'*'
    end
 end
 
-if ((matches[1] == 'setbotusername' and not Clang) or (matches[1] == "تغییر یوزرنیم ربات" and Clang)) and is_sudo(msg) then
+if matches[1] == 'setbotusername' and is_sudo(msg) then
 tdcli.changeUsername(matches[2])
    if not lang then
 return '_Bot Username Changed To:_ @'..matches[2]
@@ -1123,7 +1047,7 @@ return '_یوزرنیم ربات تغییر کرد به:_ \n@'..matches[2]..''
    end
 end
 
-if ((matches[1] == 'delbotusername' and not Clang) or (matches[1] == "حذف یوزرنیم ربات" and Clang)) and is_sudo(msg) then
+if matches[1] == 'delbotusername' and is_sudo(msg) then
 tdcli.changeUsername('')
    if not lang then
 return '*Done!*'
@@ -1132,8 +1056,8 @@ return '*انجام شد!*'
   end
 end
 
-if ((matches[1] == 'markread' and not Clang) or (matches[1] == "" and Clang)) and is_sudo(msg) then
-if ((matches[2] == 'on' and not Clang) or (matches[2] == "فعال" and Clang)) then
+if matches[1] == 'markread' and is_sudo(msg) then
+if matches[2] == 'on' then
 redis:set('markread','on')
    if not lang then
 return '_Markread >_ *ON*'
@@ -1141,7 +1065,7 @@ else
 return '_تیک دوم >_ *روشن*'
    end
 end
-if ((matches[2] == 'off' and not Clang) or (matches[2] == "غیرفعال" and Clang)) then
+if matches[2] == 'off' then
 redis:set('markread','off')
   if not lang then
 return '_Markread >_ *OFF*'
@@ -1151,11 +1075,11 @@ return '_تیک دوم >_ *خاموش*'
    end
 end
 
-if ((matches[1] == 'bc' and not Clang) or (matches[1] == "ارسال" and Clang)) and is_admin(msg) then
+if matches[1] == 'bc' and is_admin(msg) then
 		local text = matches[2]
 tdcli.sendMessage(matches[3], 0, 0, text, 0)	end
 
-if ((matches[1] == 'broadcast' and not Clang) or (matches[1] == "ارسال به همه" and Clang)) and is_sudo(msg) then		
+if matches[1] == 'broadcast' and is_sudo(msg) then		
 local data = load_data(_config.moderation.data)		
 local bc = matches[2]			
 for k,v in pairs(data) do				
@@ -1164,31 +1088,34 @@ end
 end
 
   if is_sudo(msg) then
-	if ((matches[1]:lower() == "sendfile" and not Clang) or (matches[1] == "ارسال فایل" and Clang)) and matches[2] and matches[3] then
-		local send_file = "./"..matches[2].."/"..matches[3]
-		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, send_file, msg_caption, dl_cb, nil)
+	if matches[1]:lower() == "sendfile" and matches[2] and 
+matches[3] then
+		local send_file = 
+"./"..matches[2].."/"..matches[3]
+		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 
+1, nil, send_file, '@darkplustm', dl_cb, nil)
 	end
-	if ((matches[1]:lower() == "sendplug" and not Clang) or (matches[1] == "ارسال پلاگین" and Clang)) and matches[2] then
+	if matches[1]:lower() == "sendplug" and matches[2] then
 	    local plug = "./plugins/"..matches[2]..".lua"
-		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, plug, msg_caption, dl_cb, nil)
+		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 
+1, nil, plug, '@darkplustm', dl_cb, nil)
     end
   end
 
-    if ((matches[1]:lower() == 'save' and not Clang) or (matches[1] == "ذخیره پلاگین" and Clang)) and matches[2] and is_sudo(msg) then
+    if matches[1]:lower() == 'save' and matches[2] and is_sudo(msg) then
         if tonumber(msg.reply_to_message_id_) ~= 0  then
             function get_filemsg(arg, data)
                 function get_fileinfo(arg,data)
                     if data.content_.ID == 'MessageDocument' then
                         fileid = data.content_.document_.document_.id_
                         filename = data.content_.document_.file_name_
-						file_dl(document_id)
-						sleep(1)
                         if (filename:lower():match('.lua$')) then
                             local pathf = tcpath..'/data/document/'..filename
                             if pl_exi(filename) then
                                 local pfile = 'plugins/'..matches[2]..'.lua'
                                 os.rename(pathf, pfile)
-								tdcli.sendMessage(msg.to.id, msg.id_,1, '<b>Plugin</b> <code>'..matches[2]..'</code> <b>Has Been Saved.</b>', 1, 'html')
+                                tdcli.downloadFile(fileid , dl_cb, nil)
+                                tdcli.sendMessage(msg.to.id, msg.id_,1, '<b>Plugin</b> <code>'..matches[2]..'</code> <b>Has Been Saved.</b>', 1, 'html')
                             else
                                 tdcli.sendMessage(msg.to.id, msg.id_, 1, '_This file does not exist. Send file again._', 1, 'md')
                             end
@@ -1205,18 +1132,18 @@ end
         end
     end
 
-if ((matches[1] == 'sudolist' and not Clang) or (matches[1] == "لیست سودو" and Clang)) and is_sudo(msg) then
+if matches[1] == 'sudolist' and is_sudo(msg) then
 return sudolist(msg)
     end
-if ((matches[1] == 'chats' and not Clang) or (matches[1] == "لیست گروه ها" and Clang)) and is_admin(msg) then
+if matches[1] == 'chats' and is_admin(msg) then
 return chat_list(msg)
     end
-   if ((matches[1]:lower() == 'join' and not Clang) or (matches[1] == "افزودن" and Clang)) and is_admin(msg) and matches[2] then
+   if matches[1]:lower() == 'join' and is_admin(msg) and matches[2] then
 	   tdcli.sendMessage(msg.to.id, msg.id, 1, 'I Invite you in '..matches[2]..'', 1, 'html')
 	   tdcli.sendMessage(matches[2], 0, 1, "Admin Joined!🌚", 1, 'html')
     tdcli.addChatMember(matches[2], msg.from.id, 0, dl_cb, nil)
   end
-		if ((matches[1] == 'rem' and not Clang) or (matches[1] == "حذف گروه" and Clang)) and matches[2] and is_admin(msg) then
+		if matches[1] == 'rem' and matches[2] and is_admin(msg) then
     local data = load_data(_config.moderation.data)
 			-- Group configuration removal
 			data[tostring(matches[2])] = nil
@@ -1231,27 +1158,27 @@ return chat_list(msg)
 	   tdcli.sendMessage(matches[2], 0, 1, "Group has been removed by admin command", 1, 'html')
     return '_Group_ *'..matches[2]..'* _removed_'
 		end
-if ((matches[1] == 'beyond' and not Clang) or (matches[1] == "بیوند" and Clang)) then
+if matches[1] == 'parsol' then
 return tdcli.sendMessage(msg.to.id, msg.id, 1, _config.info_text, 1, 'html')
     end
-if ((matches[1] == 'adminlist' and not Clang) or (matches[1] == "لیست ادمین" and Clang)) and is_admin(msg) then
+if matches[1] == 'adminlist' and is_admin(msg) then
 return adminlist(msg)
     end
-     if ((matches[1] == 'leave' and not Clang) or (matches[1] == "خروج" and Clang)) and is_admin(msg) then
+     if matches[1] == 'ترک' and is_admin(msg) then
   tdcli.changeChatMemberStatus(msg.to.id, our_id, 'Left', dl_cb, nil)
    end
-     if ((matches[1] == 'autoleave' and not Clang) or (matches[1] == "خروج خودکار" and Clang)) and is_admin(msg) then
+     if matches[1] == 'autoleave' and is_admin(msg) then
 local hash = 'auto_leave_bot'
 --Enable Auto Leave
-     if ((matches[2] == 'enable' and not Clang) or (matches[2] == "فعال" and Clang)) then
+     if matches[2] == 'enable' then
     redis:del(hash)
    return 'Auto leave has been enabled'
 --Disable Auto Leave
-     elseif ((matches[2] == 'disable' and not Clang) or (matches[2] == "غیرفعال" and Clang)) then
+     elseif matches[2] == 'disable' then
     redis:set(hash, true)
    return 'Auto leave has been disabled'
 --Auto Leave Status
-      elseif ((matches[2] == 'status' and not Clang) or (matches[2] == "موقعیت" and Clang)) then
+      elseif matches[2] == 'status' then
       if not redis:get(hash) then
    return 'Auto leave is enable'
        else
@@ -1260,467 +1187,122 @@ local hash = 'auto_leave_bot'
       end
    end
 
-
-if matches[1] == "helptools" and not Clang and is_mod(msg) then
-if not lang then
+if matches[1] == "دستورات سودو" and is_sudo(msg) then
 text = [[
+*نصب*
+⏺اضافه کرده گروه به پنل مدریت
 
-_Sudoer And Admins Beyond Bot Help :_
+*حذف* 
+⏺حذف گروه از پنل مدیریتی
 
+*ترک* 
+⏺خارج شدن ربات از گروه
+
+*بارگزاری مجدد*
+⏺بارگزاری مجدد همه پلاگین ها
+
+*شارژ* `[تعداد روز]`
+⏺تنظیم تاریخ انقضای گروه		
+
+*تاریخ انقضا*
+⏺اعلام تاریخ انقضای گروه		
+		
 *!visudo* `[username|id|reply]`
-_Add Sudo_
+⏺اضافه کردن سودو
 
 *!desudo* `[username|id|reply]`
-_Demote Sudo_
+⏺حذف کردن سودو
 
-*!sudolist *
-_Sudo(s) list_
+*!sudolist* 
+⏺لیست سودو‌های ربات
 
 *!adminprom* `[username|id|reply]`
-_Add admin for bot_
+⏺اضافه کردن ادمین به ربات
 
 *!admindem* `[username|id|reply]`
-_Demote bot admin_
+⏺حذف فرد از ادمینی ربات
 
-*!adminlist *
-_Admin(s) list_
-
-*!leave *
-_Leave current group_
+*!adminlist* 
+⏺لیست ادمین ها
 
 *!autoleave* `[disable/enable]`
-_Automatically leaves group_
+⏺خروج خودکار
 
 *!creategroup* `[text]`
-_Create normal group_
+⏺ساخت گروه ریلم
 
 *!createsuper* `[text]`
-_Create supergroup_
+⏺ساخت سوپر گروه
 
-*!tosuper *
-_Convert to supergroup_
+*!tosuper* 
+⏺تبدیل به سوپر گروه
 
 *!chats*
-_List of added groups_
+⏺لیست گروه های مدیریتی ربات
 
 *!join* `[id]`
-_Adds you to the group_
-
-*!rem* `[id]`
-_Remove a group from Database_
+⏺جوین شدن توسط ربات
 
 *!import* `[link]`
-_Bot joins via link_
+⏺جوین شدن ربات توسط لینک
 
 *!setbotname* `[text]`
-_Change bot's name_
+⏺تغییر اسم ربات
 
 *!setbotusername* `[text]`
-_Change bot's username_
-
-*!delbotusername *
-_Delete bot's username_
-
-*!markread* `[off/on]`
-_Second mark_
-
-*!broadcast* `[text]`
-_Send message to all added groups_
-
-*!bc* `[text] [GroupID]`
-_Send message to a specific group_
-
-*!sendfile* `[folder] [file]`
-_Send file from folder_
-
-*!sendplug* `[plug]`
-_Send plugin_
-
-*!save* `[plugin name] [reply]`
-_Save plugin by reply_
-
-*!savefile* `[address/filename] [reply]`
-_Save File by reply to specific folder_
-
-*!config*
-_Set Owner and Admin Group_
-
-*!clear cache*
-_Clear All Cache Of .telegram-cli/data_
-
-*!check*
-_Stated Expiration Date_
-
-*!check* `[GroupID]`
-_Stated Expiration Date Of Specific Group_
-
-*!charge* `[GroupID]` `[Number Of Days]`
-_Set Expire Time For Specific Group_
-
-*!charge* `[Number Of Days]`
-_Set Expire Time For Group_
-
-*!jointo* `[GroupID]`
-_Invite You To Specific Group_
-
-*!leave* `[GroupID]`
-_Leave Bot From Specific Group_
-
-_You can use_ *[!/#]* _at the beginning of commands._
-
-`This help is only for sudoers/bot admins.`
- 
-*This means only the sudoers and its bot admins can use mentioned commands.*
-
-*Good luck ;)*]]..msg_caption
-tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
-else
-
-text = [[
-_راهنمای ادمین و سودو های ربات بیوند:_
-
-*!visudo* `[username|id|reply]`
-_اضافه کردن سودو_
-
-*!desudo* `[username|id|reply]`
-_حذف کردن سودو_
-
-*!sudolist *
-_لیست سودو‌های ربات_
-
-*!adminprom* `[username|id|reply]`
-_اضافه کردن ادمین به ربات_
-
-*!admindem* `[username|id|reply]`
-_حذف فرد از ادمینی ربات_
-
-*!adminlist *
-_لیست ادمین ها_
-
-*!leave *
-_خارج شدن ربات از گروه_
-
-*!autoleave* `[disable/enable/status]`
-_خروج خودکار_
-
-*!creategroup* `[text]`
-_ساخت گروه ریلم_
-
-*!createsuper* `[text]`
-_ساخت سوپر گروه_
-
-*!tosuper *
-_تبدیل به سوپر گروه_
-
-*!chats*
-_لیست گروه های مدیریتی ربات_
-
-*join* `[ID]`
-_جوین شدن توسط ربات_
-
-*!rem* `[GroupID]`
-_حذف گروه ازطریق پنل مدیریتی_
-
-*!import* `[link]`
-_جوین شدن ربات توسط لینک_
-
-*!setbotname* `[text]`
-_تغییر اسم ربات_
-
-*!setbotusername* `[text]`
-_تغییر یوزرنیم ربات_
+⏺تغییر یوزرنیم ربات
 
 *!delbotusername* 
-_پاک کردن یوزرنیم ربات_
+⏺پاک کردن یوزرنیم ربات
 
-*!markread* `[on/off]`
-_تیک دوم_
+*!markread* `[off/on]`
+⏺تیک دوم
 
 *!broadcast* `[text]`
-_فرستادن پیام به تمام گروه های مدیریتی ربات_
+⏺فرستادن پیام به تمام گروه های مدیریتی ربات
 
-*!bc* `[text]` `[GroupID]`
-_ارسال پیام مورد نظر به گروه خاص_
+*!bc* `[text]` `[gpid]`
+⏺ارسال پیام مورد نظر به گروه خاص
 
 *!sendfile* `[cd]` `[file]`
-_ارسال فایل موردنظر از پوشه خاص_
+⏺ارسال فایل موردنظر از پوشه خاص
 
-*!sendplug* `[plugname]`
-_ارسال پلاگ مورد نظر_
+*!sendplug* `[plug]`
+⏺ارسال پلاگ مورد نظر
 
-*!save* `[plugname] [reply]`
-_ذخیره کردن پلاگین_
+*!save* `[plugin name] [reply]`
+⏺ذخیره کردن پلاگین
 
 *!savefile* `[address/filename] [reply]`
-_ذخیره کردن فایل در پوشه مورد نظر_
-
-*!config*
-_اضافه کردن سازنده و مدیران گروه به مدیریت ربات_
+⏺ذخیره کردن فایل در پوشه مورد نظر
 
 *!clear cache*
-_پاک کردن کش مسیر .telegram-cli/data_
+⏺پاک کردن کش مسیر .telegram-cli/data
 
-*!check*
-_اعلام تاریخ انقضای گروه_
 
-*check* `[GroupID]`
-_اعلام تاریخ انقضای گروه مورد نظر_
+*تاریخ انقضا* `[GroupID]`
+⏺اعلام تاریخ انقضای گروه مورد نظر
 
-*!charge* `[GroupID]` `[days]`
-_تنظیم تاریخ انقضای گروه مورد نظر_
+*شارژ* `[GroupID]` `[Number Of Days]`
+⏺تنظیم تاریخ انقضای گروه مورد نظر
 
-*!charge* `[days]`
-_تنظیم تاریخ انقضای گروه_
 
 *!jointo* `[GroupID]`
-_دعوت شدن شما توسط ربات به گروه مورد نظر_
+⏺دعوت شدن شما توسط ربات به گروه مورد نظر
 
-*!leave* `[GroupID]`
-_خارج شدن ربات از گروه مورد نظر_
+*___________________________*
 
-*شما میتوانید از [!/#] در اول دستورات برای اجرای آنها بهره بگیرید*
-
-_این راهنما فقط برای سودو ها/ادمین های ربات میباشد!_
-
-`این به این معناست که فقط سودو ها/ادمین های ربات میتوانند از دستورات بالا استفاده کنند!`
-
-*موفق باشید ;)*]]..msg_caption
+_Powered by_ :@mohammadlua
+*Channel®* : @darkplustm
+]]
 tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
 end
-
-end
-if matches[1] == "راهنمای ابزار" and Clang and is_mod(msg) then
-if not lang then
-text = [[
-
-_Sudoer And Admins Beyond Bot Help :_
-
-*سودو* `[username|id|reply]`
-_Add Sudo_
-
-*حذف سودو* `[username|id|reply]`
-_Demote Sudo_
-
-*لیست سودو *
-_Sudo(s) list_
-
-*ادمین* `[username|id|reply]`
-_Add admin for bot_
-
-*حذف ادمین* `[username|id|reply]`
-_Demote bot admin_
-
-*لیست ادمین *
-_Admin(s) list_
-
-*خروج *
-_Leave current group_
-
-*خروج خودکار* `[فعال/غیرفعال]`
-_Automatically leaves group_
-
-*ساخت گروه* `[متن]`
-_Create normal group_
-
-*ساخت سوپرگروه* `[متن]`
-_Create supergroup_
-
-*تبدیل به سوپرگروه *
-_Convert to supergroup_
-
-*لیست گروه ها*
-_List of added groups_
-
-*افزودن* `[id]`
-_Adds you to the group_
-
-*حذف گروه* `[id]`
-_Remove a group from Database_
-
-*ورود لینک* `[لینک]`
-_Bot joins via link_
-
-*تغییر نام ربات* `[متن]`
-_Change bot's name_
-
-*تغییر یوزرنیم ربات* `[متن]`
-_Change bot's username_
-
-*حذف یوزرنیم ربات *
-_Delete bot's username_
-
-*تیک دوم* `[فعال/غیرفعال]`
-_Second mark_
-
-*ارسال به همه* `[متن]`
-_Send message to all added groups_
-
-*ارسال* `[متن] [GroupID]`
-_Send message to a specific group_
-
-*ارسال فایل* `[مسیر] [اسم فایل]`
-_Send file from folder_
-
-*ارسال پلاگین* `[اسم پلاگین]`
-_Send plugin_
-
-*ذخیره پلاگین* `[اسم پلاگین] [reply]`
-_Save plugin by reply_
-
-*ذخیره فایل* `[مسیر/اسم فایل] [reply]`
-_Save File by reply to specific folder_
-
-*پیکربندی*
-_Set Owner and Admin Group as Moderator_
-
-*پاک کردن حافظه*
-_Clear All Cache Of .telegram-cli/data_
-
-*اعتبار*
-_Stated Expiration Date_
-
-*اعتبار* `[GroupID]`
-_Stated Expiration Date Of Specific Group_
-
-*شارژ* `[GroupID]` `[تعداد روز]`
-_Set Expire Time For Specific Group_
-
-*شارژ* `[تعداد روز]`
-_Set Expire Time For Group_
-
-*ورود به* `[GroupID]`
-_Invite You To Specific Group_
-
-*خروج* `[GroupID]`
-_Leave Bot From Specific Group_
-
-`This help is only for sudoers/bot admins.`
- 
-*This means only the sudoers and its bot admins can use mentioned commands.*
-
-*Good luck ;)*]]
-tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
-else
-
-text = [[
-_راهنمای ادمین و سودو های ربات بیوند:_
-
-*سودو* `[username|id|reply]`
-_اضافه کردن سودو_
-
-*حذف سودو* `[username|id|reply]`
-_حذف کردن سودو_
-
-*لیست سودو* 
-_لیست سودو‌های ربات_
-
-*ادمین* `[username|id|reply]`
-_اضافه کردن ادمین به ربات_
-
-*حذف ادمین* `[username|id|reply]`
-_حذف فرد از ادمینی ربات_
-
-*لیست ادمین* 
-_لیست ادمین ها_
-
-*خروج* 
-_خارج شدن ربات از گروه_
-
-*خروج خودکار* `[غیرفعال/فعال | موقعیت]`
-_خروج خودکار_
-
-*ساخت گروه* `[اسم انتخابی]`
-_ساخت گروه ریلم_
-
-*ساخت سوپرگروه* `[اسم انتخابی]`
-_ساخت سوپر گروه_
-
-*تبدیل به سوپرگروه*
-_تبدیل به سوپر گروه_
-
-*لیست گروه ها*
-_لیست گروه های مدیریتی ربات_
-
-*افزودن* `[ایدی گروه]`
-_جوین شدن توسط ربات_
-
-*حذف گروه* `[ایدی گروه]`
-_حذف گروه ازطریق پنل مدیریتی_
-
-*ورود لینک* `[لینک_]`
-_جوین شدن ربات توسط لینک_
-
-*تغییر نام ربات* `[text]`
-_تغییر اسم ربات_
-
-*تغییر یوزرنیم ربات* `[text]`
-_تغییر یوزرنیم ربات_
-
-*حذف یوزرنیم ربات* 
-_پاک کردن یوزرنیم ربات_
-
-*تیک دوم* `[فعال/غیرفعال]`
-_تیک دوم_
-
-*ارسال به همه* `[متن]`
-_فرستادن پیام به تمام گروه های مدیریتی ربات_
-
-*ارسال* `[متن]` `[ایدی گروه]`
-_ارسال پیام مورد نظر به گروه خاص_
-
-*ارسال فایل* `[cd]` `[file]`
-_ارسال فایل موردنظر از پوشه خاص_
-
-*ارسال پلاگین* `[اسم پلاگین]`
-_ارسال پلاگ مورد نظر_
-
-* ذخیره پلاگین* `[اسم پلاگین] [reply]`
-_ذخیره کردن پلاگین_
-
-*ذخیره فایل* `[address/filename] [reply]`
-_ذخیره کردن فایل در پوشه مورد نظر_
-
-*پیکربندی*
-_اضافه کردن سازنده و مدیران گروه به مدیریت ربات_
-
-*پاک کردن حافظه*
-_پاک کردن کش مسیر .telegram-cli/data_
-
-*اعتبار*
-_اعلام تاریخ انقضای گروه_
-
-*اعتبار* `[ایدی گروه]`
-_اعلام تاریخ انقضای گروه مورد نظر_
-
-*شارژ* `[ایدی گروه]` `[تعداد روز]`
-_تنظیم تاریخ انقضای گروه مورد نظر_
-
-*شارژ* `[تعداد روز]`
-_تنظیم تاریخ انقضای گروه_
-
-*ورود به* `[ایدی گروه]`
-_دعوت شدن شما توسط ربات به گروه مورد نظر_
-
-*خروج* `[ایدی گروه]`
-_خارج شدن ربات از گروه مورد نظر_
-
-*شما میتوانید از [!/#] در اول دستورات برای اجرای آنها بهره بگیرید*
-
-_این راهنما فقط برای سودو ها/ادمین های ربات میباشد!_
-
-`این به این معناست که فقط سودو ها/ادمین های ربات میتوانند از دستورات بالا استفاده کنند!`
-
-*موفق باشید ;)*]]
-tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
 end
 
-end
-end
 
 return { 
 patterns = {                                                                   
-"^[!/#](helptools)$", 
-"^[!/#](config)$", 
+"^(دستورات سودو)$", 
 "^[!/#](visudo)$", 
 "^[!/#](desudo)$",
 "^[!/#](sudolist)$",
@@ -1731,22 +1313,22 @@ patterns = {
 "^[!/#](adminlist)$",
 "^[!/#](adminprom) (.*)$", 
 "^[!/#](admindem) (.*)$",
-"^[!/#](leave)$",
+"^(ترک)$",
 "^[!/#](autoleave) (.*)$", 
-"^[!/#](beyond)$",
+"^[!/#](parsol)$",
 "^[!/#](creategroup) (.*)$",
 "^[!/#](createsuper) (.*)$",
 "^[!/#](tosuper)$",
 "^[!/#](chats)$",
 "^[!/#](clear cache)$",
-"^[!/#](join) (-%d+)$",
-"^[!/#](rem) (-%d+)$",
+"^[!/#](join) (.*)$",
+"^[!/#](rem) (.*)$",
 "^[!/#](import) (.*)$",
 "^[!/#](setbotname) (.*)$",
 "^[!/#](setbotusername) (.*)$",
 "^[!/#](delbotusername) (.*)$",
 "^[!/#](markread) (.*)$",
-"^[!/#](bc) +(.*) (-%d+)$",
+"^[!/#](bc) +(.*) (.*)$",
 "^[!/#](broadcast) (.*)$",
 "^[!/#](sendfile) (.*) (.*)$",
 "^[!/#](save) (.*)$",
@@ -1754,57 +1336,15 @@ patterns = {
 "^[!/#](savefile) (.*)$",
 "^[!/#]([Aa]dd)$",
 "^[!/#]([Gg]id)$",
-"^[!/#]([Cc]heck)$",
-"^[!/#]([Cc]heck) (-%d+)$",
-"^[!/#]([Cc]harge) (-%d+) (%d+)$",
-"^[!/#]([Cc]harge) (%d+)$",
-"^[!/#]([Jj]ointo) (-%d+)$",
-"^[!/#]([Ll]eave) (-%d+)$",
-"^[!/#]([Pp]lan) ([123]) (-%d+)$",
+"^(تاریخ انقضا)$",
+"^(تاریخ انقضا) (.*)$",
+"^(شارژ) (.*) (%d+)$",
+"^(شارژ) (%d+)$",
+"^[!/#]([Jj]ointo) (.*)$",
+"^[!/#]([Ll]eave) (.*)$",
+"^[!/#]([Pp]lan) ([123]) (.*)$",
 "^[!/#]([Rr]em)$",
-	"^(پیکربندی)$",
-	"^(افزودن)$",
-	"^(حذف گروه)$",
-    "^(حذف گروه) (-%d+)$",	
-    "^(راهنمای ابزار)$",
-	"^(لیست سودو)$",
-	"^(اطلاعات)$",
-	"^(ساخت گروه) (.*)$",
-	"^(ورود به) (-%d+)$",
-	"^(ساخت گروه) (.*)$",
-	"^(ساخت سوپرگروه) (.*)$",
-	"^(ذخیره فایل) (.*)$",
-	"^(سودو)$",
-	"^(سودو) (.*)$",	
-	"^(حذف سودو)$",
-	"^(حذف سودو) (.*)$",	
-	"^(ادمین)$",
-	"^(حذف ادمین)$",
-	"^(حذف ادمین) (.*)$",
-	"^(ارسال فایل) (.*)$",
-	"^(حذف یوزرنیم ربات) (.*)$",
-    "^(تغییر یوزرنیم ربات) (.*)$",
-	"^(تغییر نام ربات) (.*)$",
-	"^(تبدیل به سوپرگروه)$",
-	"^(ارسال به همه) (.*)$",
-	"^(لیست گروه ها)$",
-	"^(خروج)$",
-	"^(خروج) (-%d+)$",	
-	"^(ارسال پلاگین) (.*)$",
-	"^(لیست ادمین)$",
-	"^(خروج خودکار) (.*)$",
-    "^(شارژ) (-%d+) (%d+)$",
-    "^(شارژ) (%d+)$",	
-    "^(پلن) ([123]) (-%d+)$",
-    "^(اعتبار)$",
-    "^(اعتبار) (-%d+)$",
-    "^(ذخیره پلاگین) (.*)$",
-    "^(تیک دوم) (.*)$",
-    "^(ارسال) +(.*) (-%d+)$",
-	"^(افزودن) (-%d+)$",
-	"^(پاک کردن حافظه)$",
-	"^(بیوند)$",
 }, 
 run = run, pre_process = pre_process
 }
--- #End By @BeyondTeam
+-- #End By @darkplustm
