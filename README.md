@@ -3,4 +3,4 @@
 # کد نصب هم بلدید دیگ خودتون
 # ⭐️ستاره بدید اپدیت کنیم⭐️
 # با تشکر از 
-# [@Me_DeViL](https://telegram.me/mohammadlua)
+# [@Me_DeViL](https://telegram.me/Me_DeViL)
