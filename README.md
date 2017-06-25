@@ -1,3 +1,3 @@
 # [darkplustm](https://telegram.me/darkplustm)
-# 
-#کد نصب هم بلدید دیگ خودتون
+# [by mohammadlua](https://telegram.me/mohammadlua)
+# کد نصب هم بلدید دیگ خودتون
