@@ -1315,7 +1315,7 @@ patterns = {
 "^[!/#](admindem) (.*)$",
 "^(ترک)$",
 "^[!/#](autoleave) (.*)$", 
-"^[!/#](parsol)$",
+"^[!/#](dark)$",
 "^[!/#](creategroup) (.*)$",
 "^[!/#](createsuper) (.*)$",
 "^[!/#](tosuper)$",
