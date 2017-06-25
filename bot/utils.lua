@@ -1,147 +1,4 @@
-﻿--Begin Utils.lua By #BeyondTeam :)
- local clock = os.clock
-function sleep(time)  -- seconds
-  local t0 = clock()
-  while clock() - t0 <= time do end
-end
-
-function var_cb(msg, data)
-  -------------Get Var------------
-	bot = {}
-	msg.to = {}
-	msg.from = {}
-	msg.media = {}
-	msg.id = msg.id_
-	msg.to.type = gp_type(data.chat_id_)
-	if data.content_.caption_ then
-		msg.media.caption = data.content_.caption_
-	end
-
-	if data.reply_to_message_id_ ~= 0 then
-		msg.reply_id = data.reply_to_message_id_
-    else
-		msg.reply_id = false
-	end
-	 function get_gp(arg, data)
-		if gp_type(msg.chat_id_) == "channel" or gp_type(msg.chat_id_) == "chat" then
-			msg.to.id = msg.chat_id_
-			msg.to.title = data.title_
-		else
-			msg.to.id = msg.chat_id_
-			msg.to.title = false
-		end
-	end
-	tdcli_function ({ ID = "GetChat", chat_id_ = data.chat_id_ }, get_gp, nil)
-	function botifo_cb(arg, data)
-		bot.id = data.id_
-		our_id = data.id_
-		if data.username_ then
-			bot.username = data.username_
-		else
-			bot.username = false
-		end
-		if data.first_name_ then
-			bot.first_name = data.first_name_
-		end
-		if data.last_name_ then
-			bot.last_name = data.last_name_
-		else
-			bot.last_name = false
-		end
-		if data.first_name_ and data.last_name_ then
-			bot.print_name = data.first_name_..' '..data.last_name_
-		else
-			bot.print_name = data.first_name_
-		end
-		if data.phone_number_ then
-			bot.phone = data.phone_number_
-		else
-			bot.phone = false
-		end
-	end
-	tdcli_function({ ID = 'GetMe'}, botifo_cb, {chat_id=msg.chat_id_})
-	 function get_user(arg, data)
-		msg.from.id = data.id_
-		if data.username_ then
-			msg.from.username = data.username_
-		else
-			msg.from.username = false
-		end
-		if data.first_name_ then
-			msg.from.first_name = data.first_name_
-		end
-		if data.last_name_ then
-			msg.from.last_name = data.last_name_
-		else
-			msg.from.last_name = false
-		end
-		if data.first_name_ and data.last_name_ then
-			msg.from.print_name = data.first_name_..' '..data.last_name_
-		else
-			msg.from.print_name = data.first_name_
-		end
-		if data.phone_number_ then
-			msg.from.phone = data.phone_number_
-		else
-			msg.from.phone = false
-		end
-		match_plugins(msg)
-
-	end
-	tdcli_function ({ ID = "GetUser", user_id_ = data.sender_user_id_ }, get_user, nil)
--------------End-------------
-
-end
-
-function set_config(msg)
-local function config_cb(arg, data)
-local hash = "gp_lang:"..msg.to.id
-local lang = redis:get(hash)
-  --print(serpent.block(data))
-   for k,v in pairs(data.members_) do
-   local function config_mods(arg, data)
-       local administration = load_data(_config.moderation.data)
-if data.username_ then
-user_name = '@'..check_markdown(data.username_)
-else
-user_name = check_markdown(data.first_name_)
-end
-administration[tostring(msg.to.id)]['mods'][tostring(data.id_)] = user_name
-    save_data(_config.moderation.data, administration)
-   end
-tdcli_function ({
-    ID = "GetUser",
-    user_id_ = v.user_id_
-  }, config_mods, {user_id=v.user_id_})
- 
-if data.members_[k].status_.ID == "ChatMemberStatusCreator" then
-owner_id = v.user_id_
-   local function config_owner(arg, data)
- -- print(serpent.block(data))
-       local administration = load_data(_config.moderation.data)
-if data.username_ then
-user_name = '@'..check_markdown(data.username_)
-else
-user_name = check_markdown(data.first_name_)
-end
-administration[tostring(msg.to.id)]['owners'][tostring(data.id_)] = user_name
-    save_data(_config.moderation.data, administration)
-   end
-tdcli_function ({
-    ID = "GetUser",
-    user_id_ = owner_id
-  }, config_owner, {user_id=owner_id})
-   end
-end
-  if not lang then
-    return tdcli.sendMessage(msg.to.id, msg.id, 0, "_All group admins has been promoted and group creator is now group owner_", 0, "md")
-else
-    return tdcli.sendMessage(msg.to.id, msg.id, 0, "_تمام ادمین های گروه به مقام مدیر منتصب شدند و سازنده گروه به مقام مالک گروه منتصب شد_", 0, "md")
-     end
- end
-tdcli.getChannelMembers(msg.to.id, 0, 'Administrators', 200, config_cb, {chat_id=msg.to.id})
-end
-
+--Begin Utils.lua  @darkplustm :)
 function serialize_to_file(data, file, uglify)
   file = io.open(file, 'w+')
   local serialized
@@ -203,24 +60,19 @@ function get_http_file_name(url, headers)
 
   local disposition = headers["content-disposition"]
   if disposition then
-    -- checking
     -- attachment; filename=CodeCogsEqn.png
     file_name = disposition:match('filename=([^;]+)') or file_name
   end
-	-- return
+
   return file_name
 end
 
 --  Saves file to /tmp/. If file_name isn't provided,
 -- will get the text after the last "/" for filename
--- do ski
-msg_caption = '\n@'..string.reverse("maeTdnoyeB")
--- Waiting for ski:)
 -- and content-type for extension
 function download_to_file(url, file_name)
-  -- print to server
-  -- print("url to download: "..url)
-  -- uncomment if needed
+  print("url to download: "..url)
+
   local respbody = {}
   local options = {
     url = url,
@@ -247,8 +99,8 @@ function download_to_file(url, file_name)
   file_name = file_name or get_http_file_name(url, headers)
 
   local file_path = "data/"..file_name
-  -- print("Saved to: "..file_path)
-	-- uncomment if needed
+  print("Saved to: "..file_path)
+
   file = io.open(file_path, "w+")
   file:write(table.concat(respbody))
   file:close()
@@ -273,8 +125,7 @@ end
 
 -- DEPRECATED!!!!!
 function string.starts(String, Start)
-  -- print("string.starts(String, Start) is DEPRECATED use string:starts(text) instead")
-  -- uncomment if needed
+  print("string.starts(String, Start) is DEPRECATED use string:starts(text) instead")
   return Start == string.sub(String,1,string.len(Start))
 end
 
@@ -310,12 +161,6 @@ function pairsByKeys (t, f)
 		end
 	end
 	return iter
-end
-
-function run_bash(str)
-    local cmd = io.popen(str)
-    local result = cmd:read('*all')
-    return result
 end
 
 function scandir(directory)
@@ -369,7 +214,7 @@ function is_reply(msg)
 end
 
 function is_supergroup(msg)
-  chat_id = tostring(msg.chat_id_)
+  chat_id = tostring(msg.to.id)
   if chat_id:match('^-100') then --supergroups and channels start with -100
     if not msg.is_post_ then
     return true
@@ -380,7 +225,7 @@ function is_supergroup(msg)
 end
 
 function is_channel(msg)
-  chat_id = tostring(msg.chat_id_)
+  chat_id = tostring(msg.to.id)
   if chat_id:match('^-100') then -- Start with -100 (like channels and supergroups)
   if msg.is_post_ then -- message is a channel post
     return true
@@ -391,7 +236,7 @@ function is_channel(msg)
 end
 
 function is_group(msg)
-  chat_id = tostring(msg.chat_id_)
+  chat_id = tostring(msg.to.id)
   if chat_id:match('^-100') then --not start with -100 (normal groups does not have -100 in first)
     return false
   elseif chat_id:match('^-') then
@@ -402,7 +247,7 @@ function is_group(msg)
 end
 
 function is_private(msg)
-  chat_id = tostring(msg.chat_id_)
+  chat_id = tostring(msg.to.id)
   if chat_id:match('^-') then --private chat does not start with -
     return false
   else
@@ -428,7 +273,7 @@ function is_sudo(msg)
   local var = false
   -- Check users id in config
   for v,user in pairs(_config.sudo_users) do
-    if user == msg.sender_user_id_ then
+    if user == msg.from.id then
       var = true
     end
   end
@@ -438,23 +283,23 @@ end
 function is_owner(msg)
   local var = false
   local data = load_data(_config.moderation.data)
-  local user = msg.sender_user_id_
-  if data[tostring(msg.chat_id_)] then
-    if data[tostring(msg.chat_id_)]['owners'] then
-      if data[tostring(msg.chat_id_)]['owners'][tostring(msg.sender_user_id_)] then
+  local user = msg.from.id
+  if data[tostring(msg.to.id)] then
+    if data[tostring(msg.to.id)]['owners'] then
+      if data[tostring(msg.to.id)]['owners'][tostring(msg.from.id)] then
         var = true
       end
     end
   end
 
   for v,user in pairs(_config.admins) do
-    if user[1] == msg.sender_user_id_ then
+    if user[1] == msg.from.id then
       var = true
   end
 end
 
   for v,user in pairs(_config.sudo_users) do
-    if user == msg.sender_user_id_ then
+    if user == msg.from.id then
         var = true
     end
   end
@@ -463,15 +308,15 @@ end
 
 function is_admin(msg)
   local var = false
-  local user = msg.sender_user_id_
+  local user = msg.from.id
   for v,user in pairs(_config.admins) do
-    if user[1] == msg.sender_user_id_ then
+    if user[1] == msg.from.id then
       var = true
   end
 end
 
   for v,user in pairs(_config.sudo_users) do
-    if user == msg.sender_user_id_ then
+    if user == msg.from.id then
         var = true
     end
   end
@@ -482,31 +327,31 @@ end
 function is_mod(msg)
   local var = false
   local data = load_data(_config.moderation.data)
-  local usert = msg.sender_user_id_
-  if data[tostring(msg.chat_id_)] then
-    if data[tostring(msg.chat_id_)]['mods'] then
-      if data[tostring(msg.chat_id_)]['mods'][tostring(msg.sender_user_id_)] then
+  local usert = msg.from.id
+  if data[tostring(msg.to.id)] then
+    if data[tostring(msg.to.id)]['mods'] then
+      if data[tostring(msg.to.id)]['mods'][tostring(msg.from.id)] then
         var = true
       end
     end
   end
 
-  if data[tostring(msg.chat_id_)] then
-    if data[tostring(msg.chat_id_)]['owners'] then
-      if data[tostring(msg.chat_id_)]['owners'][tostring(msg.sender_user_id_)] then
+  if data[tostring(msg.to.id)] then
+    if data[tostring(msg.to.id)]['owners'] then
+      if data[tostring(msg.to.id)]['owners'][tostring(msg.from.id)] then
         var = true
       end
     end
   end
 
   for v,user in pairs(_config.admins) do
-    if user[1] == msg.sender_user_id_ then
+    if user[1] == msg.from.id then
       var = true
   end
 end
 
   for v,user in pairs(_config.sudo_users) do
-    if user == msg.sender_user_id_ then
+    if user == msg.from.id then
         var = true
     end
   end
@@ -649,19 +494,6 @@ end
 return var
 end
 
-function is_whitelist(user_id, chat_id)
-  local var = false
-  local data = load_data(_config.moderation.data)
-  if data[tostring(chat_id)] then
-    if data[tostring(chat_id)]['whitelist'] then
-      if data[tostring(chat_id)]['whitelist'][tostring(user_id)] then
-        var = true
-      end
-    end
-  end
-return var
-end
-
 function is_gbanned(user_id)
   local var = false
   local data = load_data(_config.moderation.data)
@@ -678,8 +510,8 @@ end
 function is_filter(msg, text)
 local var = false
 local data = load_data(_config.moderation.data)
-  if data[tostring(msg.chat_id_)]['filterlist'] then
-for k,v in pairs(data[tostring(msg.chat_id_)]['filterlist']) do 
+  if data[tostring(msg.to.id)]['filterlist'] then
+for k,v in pairs(data[tostring(msg.to.id)]['filterlist']) do 
     if string.find(string.lower(text), string.lower(k)) then
        var = true
         end
@@ -700,22 +532,6 @@ local msgid = {[0] = message_ids}
   tdcli.deleteMessages(chat_id, msgid, dl_cb, nil)
 end
 
-function channel_unblock(chat_id, user_id)
-   tdcli.changeChatMemberStatus(chat_id, user_id, 'Left', dl_cb, nil)
-end
-
- function channel_set_admin(chat_id, user_id)
-   tdcli.changeChatMemberStatus(chat_id, user_id, 'Editor', dl_cb, nil)
-end
-
- function channel_set_mod(chat_id, user_id)
-   tdcli.changeChatMemberStatus(chat_id, user_id, 'Moderator', dl_cb, nil)
-end
-
- function channel_demote(chat_id, user_id)
-   tdcli.changeChatMemberStatus(chat_id, user_id, 'Member', dl_cb, nil)
-end
-
 function file_dl(file_id)
 	tdcli.downloadFile(file_id, dl_cb, nil)
 end
@@ -725,7 +541,7 @@ local hash = "gp_lang:"..chat_id
 local lang = redis:get(hash)
     local data = load_data(_config.moderation.data)
     local i = 1
-  if not data[tostring(chat_id)] then
+  if not data[tostring(msg.chat_id_)] then
   if not lang then
     return '_Group is not added_'
 else
@@ -746,7 +562,7 @@ else
    message = '_لیست کاربران محروم شده از گروه :_\n'
      end
   for k,v in pairs(data[tostring(chat_id)]['banned']) do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+    message = message ..i.. '- '..check_markdown(v)..' [' ..k.. '] \n'
    i = i + 1
 end
   return message
@@ -757,7 +573,7 @@ local hash = "gp_lang:"..chat_id
 local lang = redis:get(hash)
     local data = load_data(_config.moderation.data)
     local i = 1
-  if not data[tostring(chat_id)] then
+  if not data[tostring(msg.chat_id_)] then
   if not lang then
     return '_Group is not added_'
 else
@@ -778,43 +594,7 @@ else
    message = '_لیست کاربران سایلنت شده :_\n'
     end
   for k,v in pairs(data[tostring(chat_id)]['is_silent_users']) do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
-   i = i + 1
-end
-  return message
-end
-
-function whitelist(chat_id)
-local hash = "gp_lang:"..chat_id
-local lang = redis:get(hash)
-    local data = load_data(_config.moderation.data)
-    local i = 1
-  if not data[tostring(chat_id)] then
-  if not lang then
-    return '_Group is not added_'
-else
-    return 'گروه به لیست گروه های مدیریتی ربات اضافه نشده است'
-   end
-  end
-  if not data[tostring(chat_id)]['whitelist'] then
-    data[tostring(chat_id)]['whitelist'] = {}
-    save_data(_config.moderation.data, data)
-    end
-  -- determine if table is empty
-  if next(data[tostring(chat_id)]['whitelist']) == nil then --fix way
-     if not lang then
-					return "_No_ *users* _in white list_"
-   else
-					return "*هیچ کاربری در لیست سفید وجود ندارد*"
-              end
-				end
-       if not lang then
-   message = '*Users of white list :*\n'
-         else
-   message = '_کاربران لیست سفید :_\n'
-     end
-  for k,v in pairs(data[tostring(chat_id)]['whitelist']) do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+    message = message ..i.. '- '..check_markdown(v)..' [' ..k.. '] \n'
    i = i + 1
 end
   return message
@@ -842,7 +622,7 @@ local lang = redis:get(hash)
    message = '_لیست کاربران محروم شده از گروه های ربات :_\n'
    end
   for k,v in pairs(data['gban_users']) do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+    message = message ..i.. '- '..check_markdown(v)..' [' ..k.. '] \n'
    i = i + 1
 end
   return message
@@ -887,4 +667,3 @@ else
          end
      return filterlist
    end
-
