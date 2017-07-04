@@ -4,17 +4,17 @@ local lang = redis:get(hash)
     -- superuser and admins only (because sudo are always has privilege)
     if not is_admin(msg) then
    if not lang then
-        return '➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants'
+        return '➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants'
 else
-     return '➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است'
+     return '➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است'
     end
 end
     local data = load_data(_config.moderation.data)
   if data[tostring(msg.to.id)] then
 if not lang then
-   return '➡️*Gяσυρ ιѕ αℓяєα∂у α∂∂є∂*♻️\n*group name :*'..msg.to.title..'\n➖➖➖➖➖➖➖\nℹ️All messages will be studied this group do not require installation\nby: ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+   return '➡️*Gяσυρ ιѕ αℓяєα∂у α∂∂є∂*♻️\n*group name :*'..msg.to.title..'\n👤\nℹ️All messages will be studied this group do not require installation\nby: ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
 else
-return '➡️_گروه در لیست گروه پشتیبان ربات قبلا بوده است♻️_\nاسم گروه : '..msg.to.title..'\n➖➖➖➖➖➖➖\nℹ️تمام پیام های این گروه مورد برسی قرار میگیرد نیازی به نصب نیست\nتوسط: ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+return '➡️_گروه در لیست گروه پشتیبان ربات قبلا بوده است♻️_\nاسم گروه : '..msg.to.title..'\n👤\nℹ️تمام پیام های این گروه مورد برسی قرار میگیرد نیازی به نصب نیست\nتوسط: ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
   end
 end
         -- create data array in moderation.json
@@ -59,9 +59,9 @@ end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
     if not lang then
-  return '➡️*Gяσυρ нαѕ вєєη α∂∂є∂✅*\n*group name :*'..msg.to.title..'\n➖➖➖➖➖➖➖\nℹ️From now on all messages Group is examined\nby: ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+  return '➡️*Gяσυρ нαѕ вєєη α∂∂є∂✅*\n*group name :*'..msg.to.title..'\n👤\nℹ️From now on all messages Group is examined\nby: ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
 else
-  return '➡️گروه به لیست گروه های پشتیبانی اضافه شد✅\nاسم گروه : '..msg.to.title..'\n➖➖➖➖➖➖➖\nℹ️از این پس تمام پیام های گروه مورد برسی قرار میگیرد\nتوسط: ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+  return '➡️گروه به لیست گروه های پشتیبانی اضافه شد✅\nاسم گروه : '..msg.to.title..'\n👤\nℹ️از این پس تمام پیام های گروه مورد برسی قرار میگیرد\nتوسط: ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
 end
 end
 
@@ -71,18 +71,18 @@ local lang = redis:get(hash)
     -- superuser and admins only (because sudo are always has privilege)
       if not is_admin(msg) then
      if not lang then
-        return '➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants'
+        return '➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants'
    else
-        return '➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است'
+        return '➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است'
     end
    end
     local data = load_data(_config.moderation.data)
     local receiver = msg.to.idbnnn
   if not data[tostring(msg.to.id)] then
   if not lang then
-    return '➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n*group name :*'..msg.to.title..'\n➖➖➖➖➖➖➖\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it'
+    return '➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n*group name :*'..msg.to.title..'\n👤\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it'
 else
-    return '_➡️گروه در لیست گروه های پشتیبانی نیست❌_\nاسم گروه : '..msg.to.title..'\n➖➖➖➖➖➖➖\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید'
+    return '_➡️گروه در لیست گروه های پشتیبانی نیست❌_\nاسم گروه : '..msg.to.title..'\n👤\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید'
    end
   end
 
@@ -95,9 +95,9 @@ else
       end data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
  if not lang then
-  return '*➡️Gяσυρ нαѕ вєєη яємσνє∂✅*\n*group name :*'..msg.to.title..'\n➖➖➖➖➖➖➖\nℹ️Group removed from the list of support groups and other messages are not examined this group\nby ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+  return '*➡️Gяσυρ нαѕ вєєη яємσνє∂✅*\n*group name :*'..msg.to.title..'\n👤\nℹ️Group removed from the list of support groups and other messages are not examined this group\nby ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
  else
-  return '_➡️گروه از لیست گروه های پشتیبانی حذف شد✅_\nاسم گروه : '..msg.to.title..'\n➖➖➖➖➖➖➖\nℹ️گروه از لیست گروه های پشتیبان حذف شد و دیگر پیام های این گروه مورد برسی قرار نمیگیرد\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+  return '_➡️گروه از لیست گروه های پشتیبانی حذف شد✅_\nاسم گروه : '..msg.to.title..'\n👤\nℹ️گروه از لیست گروه های پشتیبان حذف شد و دیگر پیام های این گروه مورد برسی قرار نمیگیرد\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
 end
 end
 
@@ -111,18 +111,18 @@ local data = load_data(_config.moderation.data)
     end
 if data[tostring(msg.to.id)]['filterlist'][(word)] then
    if not lang then
-         return '➡️_Wσя∂_ *'..word..'* _ιѕ αℓяєα∂у ƒιℓтєяє∂_♻️\n➖➖➖➖➖➖➖\nword : '..word..'\nℹ️The word was already filtering removes the need to filter not again\nby ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+         return '➡️_Wσя∂_ *'..word..'* _ιѕ αℓяєα∂у ƒιℓтєяє∂_♻️\n👤\nword : '..word..'\nℹ️The word was already filtering removes the need to filter not again\nby ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
 
             else
-         return '➡️_کلمه_ *'..word..'* _از قبل فیلتر بود_♻️\n➖➖➖➖➖➖➖\nکلمه : '..word..'\nℹ️از قبل فیلتر بود این کلمه پاک میشود نیازی به فیلتر دوباره نیست\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+         return '➡️_کلمه_ *'..word..'* _از قبل فیلتر بود_♻️\n👤\nکلمه : '..word..'\nℹ️از قبل فیلتر بود این کلمه پاک میشود نیازی به فیلتر دوباره نیست\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
     end
 end
    data[tostring(msg.to.id)]['filterlist'][(word)] = true
      save_data(_config.moderation.data, data)
    if not lang then
-         return '➡️_Wσя∂_ *'..word..'* _α∂∂є∂ тσ ƒιℓтєяє∂ ωσя∂ѕ ℓιѕт_✅\n➖➖➖➖➖➖➖\nword : '..word..'\nℹ️The word was added to the filter list will be cleared after the word\nby ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+         return '➡️_Wσя∂_ *'..word..'* _α∂∂є∂ тσ ƒιℓтєяє∂ ωσя∂ѕ ℓιѕт_✅\n👤\nword : '..word..'\nℹ️The word was added to the filter list will be cleared after the word\nby ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
             else
-         return '➡️_کلمه_ *'..word..'* _به لیست کلمات فیلتر اضافه شد_✅\n➖➖➖➖➖➖➖\nکلمه : '..word..'\nℹ️به لیست فیلتر اضافه شد از این پس این کلمه پاک میشود\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+         return '➡️_کلمه_ *'..word..'* _به لیست کلمات فیلتر اضافه شد_✅\n👤\nکلمه : '..word..'\nℹ️به لیست فیلتر اضافه شد از این پس این کلمه پاک میشود\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
     end
 end
 
@@ -140,13 +140,13 @@ local lang = redis:get(hash)
        if not lang then
          return '➡️_Wσя∂_ *'..word..'* _яємσνє∂ ƒяσм ƒιℓтєяє∂ ωσя∂ѕ ℓιѕт_❌word :word : "..word.."\nℹ️The word in the list is not filtered and will not be cleared\nby ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
        elseif lang then
-         return '➡️_کلمه_ *'..word..'* _از لیست کلمات فیلتر حذف شد_❌\n➖➖➖➖➖➖➖\nکلمه : "..word.."\nℹ️کلمه از لیست فیلتر پاک شد دیگر این کلمه پاک نمیشود\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+         return '➡️_کلمه_ *'..word..'* _از لیست کلمات فیلتر حذف شد_❌\n👤\nکلمه : "..word.."\nℹ️کلمه از لیست فیلتر پاک شد دیگر این کلمه پاک نمیشود\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
      end
       else
        if not lang then
-         return '➡️_Wσя∂_ *'..word..'* _ιѕ ησт ƒιℓтєяє∂_\n➖➖➖➖➖➖➖\nword : '..word..'\nℹ️The word in the list is not filtered and will not be cleared\nby ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+         return '➡️_Wσя∂_ *'..word..'* _ιѕ ησт ƒιℓтєяє∂_\n👤\nword : '..word..'\nℹ️The word in the list is not filtered and will not be cleared\nby ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
        elseif lang then
-         return '➡️_کلمه_ *'..word..'* _از قبل فیلتر نبود_\n➖➖➖➖➖➖➖\nکلمه : '..word..'\nℹ️کلمه در لیست فیلتر نیست و پاک نمیشود\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
+         return '➡️_کلمه_ *'..word..'* _از قبل فیلتر نبود_\n👤\nکلمه : '..word..'\nℹ️کلمه در لیست فیلتر نیست و پاک نمیشود\nتوسط ☆>*[*@'..check_markdown(msg.from.username or '')..'*]*'
       end
    end
 end
@@ -170,17 +170,17 @@ local lang = redis:get(hash)
     local i = 1
   if not data[tostring(msg.chat_id_)] then
   if not lang then
-    return "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n➖➖➖➖➖➖➖\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it"
+    return "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n👤\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it"
  else
-    return "_➡️گروه در لیست گروه های پشتیبانی نیست❌\n➖➖➖➖➖➖➖\n❗️_گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید"
+    return "_➡️گروه در لیست گروه های پشتیبانی نیست❌\n👤\n❗️_گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید"
   end
  end
   -- determine if table is empty
   if next(data[tostring(msg.to.id)]['mods']) == nil then --fix way
   if not lang then
-    return "➡️_Nσ_ *мσ∂єяαтσя* _ιη тнιѕ gяσυρ_❗\n➖➖➖➖➖➖➖\nℹ️First order of !promote\nDeputy to the Group determines"
+    return "➡️_Nσ_ *мσ∂єяαтσя* _ιη тнιѕ gяσυρ_❗\n👤\nℹ️First order of !promote\nDeputy to the Group determines"
 else
-   return "➡️_در این گروه هیچ معاونی برای ربات انتخاب نشده است❗_\n➖➖➖➖➖➖➖\nℹ️ابتدا با دستور ترفیع\nمعاون برای گروه تایین کنید"
+   return "➡️_در این گروه هیچ معاونی برای ربات انتخاب نشده است❗_\n👤\nℹ️ابتدا با دستور ترفیع\nمعاون برای گروه تایین کنید"
   end
 end
 if not lang then
@@ -203,17 +203,17 @@ local lang = redis:get(hash)
     local i = 1
   if not data[tostring(msg.to.id)] then
 if not lang then
-    return "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌❗️*\n➖➖➖➖➖➖➖\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it"
+    return "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌❗️*\n👤\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it"
 else
-return "_➡️گروه در لیست گروه های پشتیبانی نیست❌❗️_\n➖➖➖➖➖➖➖\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید"
+return "_➡️گروه در لیست گروه های پشتیبانی نیست❌❗️_\n👤\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید"
   end
 end
   -- determine if table is empty
   if next(data[tostring(msg.to.id)]['owners']) == nil then --fix way
  if not lang then
-    return "➡️_Nσ_ *σωηєя* _ιη тнιѕ gяσυρ_❕\n➖➖➖➖➖➖➖\nℹ️First, !setowner commands Manager for Group Set"
+    return "➡️_Nσ_ *σωηєя* _ιη тнιѕ gяσυρ_❕\n👤\nℹ️First, !setowner commands Manager for Group Set"
 else
-    return "➡️هیچ مدیری برای ربات در این گروه انتخاب نشده است❕\n➖➖➖➖➖➖➖\nℹ️ابتدا با دستور تنظیم مدیر مدیر برای گروه تایین کنید"
+    return "➡️هیچ مدیری برای ربات در این گروه انتخاب نشده است❕\n👤\nℹ️ابتدا با دستور تنظیم مدیر مدیر برای گروه تایین کنید"
   end
 end
 if not lang then
@@ -236,9 +236,9 @@ local function config(msg)
   function padmin(extra,result,success)
     if not data[tostring(msg.chat_id_)] then
       if not lang then
-        message = "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n➖➖➖➖➖➖➖\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it"
+        message = "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n👤\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it"
       else
-        message = "➡️گروه در لیست گروه های پشتیبانی نیست❌\n➖➖➖➖➖➖➖\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید"
+        message = "➡️گروه در لیست گروه های پشتیبانی نیست❌\n👤\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید"
       end
     end
     function set(arg, data)
@@ -273,9 +273,9 @@ if not tonumber(data.sender_user_id_) then return false end
     if data.sender_user_id_ then
   if not administration[tostring(data.chat_id_)] then
   if not lang then
-    return tdcli.sendMessage(data.chat_id_, "", 0, "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n➖➖➖➖➖➖➖\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it", 0, "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n👤\nℹ️Group Support groups are not in the list beginning with the !add instructions to install it", 0, "md")
 else
-    return tdcli.sendMessage(data.chat_id_, "", 0, "_➡️گروه در لیست گروه های پشتیبانی نیست❌_\n➖➖➖➖➖➖➖\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید", 0, "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "_➡️گروه در لیست گروه های پشتیبانی نیست❌_\n👤\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید", 0, "md")
      end
   end
 if cmd == "setowner" then
@@ -290,17 +290,17 @@ user_name = check_markdown(data.first_name_)
 end
 if administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
     if not lang then
-return tdcli.sendMessage(arg.chat_id_, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *gяσυρ σωηєя*♻️\n➖➖➖➖➖➖➖\nℹ️No need to adjust before all commands for the user freedom", 0, "md") 
+return tdcli.sendMessage(arg.chat_id_, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *gяσυρ σωηєя*♻️\n👤\nℹ️No need to adjust before all commands for the user freedom", 0, "md") 
   else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر بود*♻️\n➖➖➖➖➖➖➖\nℹ️نیازی به تنظیم نیست از قبل تمام دستورات برای این کاربر ازاد بود", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر بود*♻️\n👤\nℹ️نیازی به تنظیم نیست از قبل تمام دستورات برای این کاربر ازاد بود", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    if not lang then
-  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησω тнє_ *gяσυρ σωηєя*✅\n➖➖➖➖➖➖➖\nℹ️He was released the band director can use all the commands for the robot", 0, "md")
+  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησω тнє_ *gяσυρ σωηєя*✅\n👤\nℹ️He was released the band director can use all the commands for the robot", 0, "md")
    else
-  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*مدیر گروه شد*✅\n➖➖➖➖➖➖➖\nℹ️مدیر گروه شد تمام دستورات ربات برای وی ازاد شد و میتواند استفاده کند", 0, "md")
+  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*مدیر گروه شد*✅\n👤\nℹ️مدیر گروه شد تمام دستورات ربات برای وی ازاد شد و میتواند استفاده کند", 0, "md")
    end
 end
 tdcli_function ({
@@ -320,17 +320,17 @@ user_name = check_markdown(data.first_name_)
 end
 if administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *мσ∂єяαтσя*♻\n➖➖➖➖➖➖➖\nℹ️️Vice user to the group, all the orders he was free to not need to adjust again", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *мσ∂єяαтσя*♻\n👤\nℹ️️Vice user to the group, all the orders he was free to not need to adjust again", 0, "md")
 else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون گروه بود*♻️\n➖➖➖➖➖➖➖\nℹ️کاربر از قبل معاون گروه بود و تمام دستورات برای او ازاد بود نیازی به تنظیم دوباره نیست", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون گروه بود*♻️\n👤\nℹ️کاربر از قبل معاون گروه بود و تمام دستورات برای او ازاد بود نیازی به تنظیم دوباره نیست", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *ρяσмσтє∂*✅\n➖➖➖➖➖➖➖\nℹ️Deputy Assistant Administrator User Group and help him go all the commands to be", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *ρяσмσтє∂*✅\n👤\nℹ️Deputy Assistant Administrator User Group and help him go all the commands to be", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*معاون گروه شد*✅\n➖➖➖➖➖➖➖\nℹ️کاربر معاون گروه و کمک یار مدیر شد تمام دستورات برای وی ازاد شد", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*معاون گروه شد*✅\n👤\nℹ️کاربر معاون گروه و کمک یار مدیر شد تمام دستورات برای وی ازاد شد", 0, "md")
    end
 end
 tdcli_function ({
@@ -350,17 +350,17 @@ user_name = check_markdown(data.first_name_)
 end
 if not administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
    if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *gяσυρ σωηєя*❌\n➖➖➖➖➖➖➖\nℹ️User already was director general directives for he is free", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *gяσυρ σωηєя*❌\n👤\nℹ️User already was director general directives for he is free", 0, "md")
    else
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر نبود*❌\n➖➖➖➖➖➖➖\nℹ️کاربر از قبل مدیر نبود و دستورات عمومی برای او ازاد است", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر نبود*❌\n👤\nℹ️کاربر از قبل مدیر نبود و دستورات عمومی برای او ازاد است", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
    if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ∂ємσтє σƒ_ *gяσυρ σωηєя*✅\n➖➖➖➖➖➖➖\nℹ️User fell from his position as director of public statements he is free today only", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ∂ємσтє σƒ_ *gяσυρ σωηєя*✅\n👤\nℹ️User fell from his position as director of public statements he is free today only", 0, "md")
     else
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام مدیر برکنار شد*✅\n➖➖➖➖➖➖➖\nℹ️کاربر از مقام مدیر گروه تنزل پیدا کرد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام مدیر برکنار شد*✅\n👤\nℹ️کاربر از مقام مدیر گروه تنزل پیدا کرد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
    end
 end
 tdcli_function ({
@@ -378,17 +378,17 @@ user_name = check_markdown(data.first_name_)
 end
 if not administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
     if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *мσ∂єяαтσя*❗️\n➖➖➖➖➖➖➖\nℹ️Robot deputy general instructions for the user and only he is free", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *мσ∂єяαтσя*❗️\n👤\nℹ️Robot deputy general instructions for the user and only he is free", 0, "md")
     else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام معاون گروه برکنار شد*✅\n➖➖➖➖➖➖➖\nℹ️کاربر از مقام معاون گروه برکنار شد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام معاون گروه برکنار شد*✅\n👤\nℹ️کاربر از مقام معاون گروه برکنار شد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
    end
   end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *∂ємσтє∂*\n➖➖➖➖➖➖➖\nℹ️User group was removed from his position as deputy general directives for he is free today only", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *∂ємσтє∂*\n👤\nℹ️User group was removed from his position as deputy general directives for he is free today only", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام معاون گروه برکنار شد*✅\n➖➖➖➖➖➖➖\nℹ️کاربر از مقام معاون گروه برکنار شد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام معاون گروه برکنار شد*✅\n👤\nℹ️کاربر از مقام معاون گروه برکنار شد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
    end
 end
 tdcli_function ({
@@ -421,9 +421,9 @@ local cmd = arg.cmd
     local administration = load_data(_config.moderation.data)
   if not administration[tostring(arg.chat_id)] then
   if not lang then
-    return tdcli.sendMessage(data.chat_id_, "", 0, "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n➖➖➖➖➖➖➖\nℹGroup Support groups are not in the list beginning with the !add instructions to install it", 0, "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n👤\nℹGroup Support groups are not in the list beginning with the !add instructions to install it", 0, "md")
 else
-    return tdcli.sendMessage(data.chat_id_, "", 0, "_➡️گروه در لیست گروه های پشتیبانی نیست❌_\n➖➖➖➖➖➖➖\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید", 0, "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "_➡️گروه در لیست گروه های پشتیبانی نیست❌_\n👤\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید", 0, "md")
      end
   end
 if not arg.username then return false end
@@ -436,64 +436,64 @@ end
 if cmd == "setowner" then
 if administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
     if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *gяσυρ σωηєя*♻️\n➖➖➖➖➖➖➖\nℹ️No need to adjust before all commands for the user freedom", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *gяσυρ σωηєя*♻️\n👤\nℹ️No need to adjust before all commands for the user freedom", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر بود*♻️\n➖➖➖➖➖➖➖\nℹ️نیازی به تنظیم نیست از قبل تمام دستورات برای این کاربر ازاد بود", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر بود*♻️\n👤\nℹ️نیازی به تنظیم نیست از قبل تمام دستورات برای این کاربر ازاد بود", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    if not lang then
-  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησω тнє_ *gяσυρ σωηєя*✅\n➖➖➖➖➖➖➖\nℹ️He was released the band director can use all the commands for the robot", 0, "md")
+  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησω тнє_ *gяσυρ σωηєя*✅\n👤\nℹ️He was released the band director can use all the commands for the robot", 0, "md")
    else
-  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*مدیر گروه شد*✅\n➖➖➖➖➖➖➖\nℹ️مدیر گروه شد تمام دستورات ربات برای وی ازاد شد و میتواند استفاده کند", 0, "md")   end
+  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*مدیر گروه شد*✅\n👤\nℹ️مدیر گروه شد تمام دستورات ربات برای وی ازاد شد و میتواند استفاده کند", 0, "md")   end
 end
   if cmd == "promote" then
 if administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *мσ∂єяαтσя*♻\n➖➖➖➖➖➖➖\nℹ️️Vice user to the group, all the orders he was free to not need to adjust again", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *мσ∂єяαтσя*♻\n👤\nℹ️️Vice user to the group, all the orders he was free to not need to adjust again", 0, "md")
 else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون گروه بود*♻️\n➖➖➖➖➖➖➖\nℹ️کاربر از قبل معاون گروه بود و تمام دستورات برای او ازاد بود نیازی به تنظیم دوباره نیست", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون گروه بود*♻️\n👤\nℹ️کاربر از قبل معاون گروه بود و تمام دستورات برای او ازاد بود نیازی به تنظیم دوباره نیست", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *ρяσмσтє∂*✅\n➖➖➖➖➖➖➖\nℹ️Deputy Assistant Administrator User Group and help him go all the commands to be", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *ρяσмσтє∂*✅\n👤\nℹ️Deputy Assistant Administrator User Group and help him go all the commands to be", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*معاون گروه شد*✅\n➖➖➖➖➖➖➖\nℹ️کاربر معاون گروه و کمک یار مدیر شد تمام دستورات برای وی ازاد شد", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*معاون گروه شد*✅\n👤\nℹ️کاربر معاون گروه و کمک یار مدیر شد تمام دستورات برای وی ازاد شد", 0, "md")
    end
 end
    if cmd == "remowner" then
 if not administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
    if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *gяσυρ σωηєя*❌\n➖➖➖➖➖➖➖\nℹ️User already was director general directives for he is free", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *gяσυρ σωηєя*❌\n👤\nℹ️User already was director general directives for he is free", 0, "md")
    else
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر نبود*❌\n➖➖➖➖➖➖➖\nℹ️کاربر از قبل مدیر نبود و دستورات عمومی برای او ازاد است", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر نبود*❌\n👤\nℹ️کاربر از قبل مدیر نبود و دستورات عمومی برای او ازاد است", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
    if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ∂ємσтє σƒ_ *gяσυρ σωηєя*✅\n➖➖➖➖➖➖➖\nℹ️User fell from his position as director of public statements he is free today only", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ∂ємσтє σƒ_ *gяσυρ σωηєя*✅\n👤\nℹ️User fell from his position as director of public statements he is free today only", 0, "md")
     else
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام مدیر برکنار شد*✅\n➖➖➖➖➖➖➖\nℹ️کاربر از مقام مدیر گروه تنزل پیدا کرد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام مدیر برکنار شد*✅\n👤\nℹ️کاربر از مقام مدیر گروه تنزل پیدا کرد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
    end
 end
    if cmd == "demote" then
 if not administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
     if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *мσ∂єяαтσя*❗️\n➖➖➖➖➖➖➖\nℹ️Robot deputy general instructions for the user and only he is free", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *мσ∂єяαтσя*❗️\n👤\nℹ️Robot deputy general instructions for the user and only he is free", 0, "md")
     else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون نبود*❗️\n➖➖➖➖➖➖➖\nℹ️کاربر معاون ربات نیست و فقط دستورات عمومی برای او ازاد است", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون نبود*❗️\n👤\nℹ️کاربر معاون ربات نیست و فقط دستورات عمومی برای او ازاد است", 0, "md")
    end
   end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *∂ємσтє∂*\n➖➖➖➖➖➖➖\nℹ️User group was removed from his position as deputy general directives for he is free today only", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *∂ємσтє∂*\n👤\nℹ️User group was removed from his position as deputy general directives for he is free today only", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام معاون گروه برکنار شد*✅\n➖➖➖➖➖➖➖\nℹ️کاربر از مقام معاون گروه برکنار شد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام معاون گروه برکنار شد*✅\n👤\nℹ️کاربر از مقام معاون گروه برکنار شد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
    end
 end
    if cmd == "id" then
@@ -527,9 +527,9 @@ local cmd = arg.cmd
     local administration = load_data(_config.moderation.data)
   if not administration[tostring(arg.chat_id)] then
   if not lang then
-    return tdcli.sendMessage(data.chat_id_, "", 0, "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n➖➖➖➖➖➖➖\nℹGroup Support groups are not in the list beginning with the !add instructions to install it", 0, "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "➡️*Gяσυρ ιѕ ησт α∂∂є∂❌*\n👤\nℹGroup Support groups are not in the list beginning with the !add instructions to install it", 0, "md")
 else
-    return tdcli.sendMessage(data.chat_id_, "", 0, "_➡️گروه در لیست گروه های پشتیبانی نیست❌_\n➖➖➖➖➖➖➖\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید", 0, "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "_➡️گروه در لیست گروه های پشتیبانی نیست❌_\n👤\nℹ️گروه در لیست گروه های پشتیبان نیست ابتدا با دستور نصب ان را نصب کنید", 0, "md")
      end
   end
 if not tonumber(arg.user_id) then return false end
@@ -543,39 +543,39 @@ end
   if cmd == "setowner" then
   if administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
     if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *gяσυρ σωηєя*♻️\n➖➖➖➖➖➖➖\nℹ️No need to adjust before all commands for the user freedom", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *gяσυρ σωηєя*♻️\n👤\nℹ️No need to adjust before all commands for the user freedom", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر بود*♻️\n➖➖➖➖➖➖➖\nℹ️نیازی به تنظیم نیست از قبل تمام دستورات برای این کاربر ازاد بود", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل مدیر بود*♻️\n👤\nℹ️نیازی به تنظیم نیست از قبل تمام دستورات برای این کاربر ازاد بود", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    if not lang then
-  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησω тнє_ *gяσυρ σωηєя*✅\n➖➖➖➖➖➖➖\nℹ️He was released the band director can use all the commands for the robot", 0, "md")
+  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησω тнє_ *gяσυρ σωηєя*✅\n👤\nℹ️He was released the band director can use all the commands for the robot", 0, "md")
    else
-  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*مدیر گروه شد*✅\n➖➖➖➖➖➖➖\nℹ️مدیر گروه شد تمام دستورات ربات برای وی ازاد شد و میتواند استفاده کند", 0, "md")   end
+  return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*مدیر گروه شد*✅\n👤\nℹ️مدیر گروه شد تمام دستورات ربات برای وی ازاد شد و میتواند استفاده کند", 0, "md")   end
    end
 end
   if cmd == "promote" then
 if administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *мσ∂єяαтσя*♻\n➖➖➖➖➖➖➖\nℹ️️Vice user to the group, all the orders he was free to not need to adjust again", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ αℓяєα∂у α_ *мσ∂єяαтσя*♻\n👤\nℹ️️Vice user to the group, all the orders he was free to not need to adjust again", 0, "md")
 else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون گروه بود*♻️\n➖➖➖➖➖➖➖\nℹ️کاربر از قبل معاون گروه بود و تمام دستورات برای او ازاد بود نیازی به تنظیم دوباره نیست", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون گروه بود*♻️\n👤\nℹ️کاربر از قبل معاون گروه بود و تمام دستورات برای او ازاد بود نیازی به تنظیم دوباره نیست", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ∂ємσтє σƒ_ *gяσυρ σωηєя*✅\n➖➖➖➖➖➖➖\nℹ️User fell from his position as director of public statements he is free today only", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ∂ємσтє σƒ_ *gяσυρ σωηєя*✅\n👤\nℹ️User fell from his position as director of public statements he is free today only", 0, "md")
    else
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام مدیر برکنار شد*✅\n➖➖➖➖➖➖➖\nℹ️کاربر از مقام مدیر گروه تنزل پیدا کرد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام مدیر برکنار شد*✅\n👤\nℹ️کاربر از مقام مدیر گروه تنزل پیدا کرد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
    end
 end
    if cmd == "remowner" then
 if not administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
    if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *gяσυρ σωηєя*❌\n➖➖➖➖➖➖➖\nℹ️User already was director general directives for he is free", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *gяσυρ σωηєя*❌\n👤\nℹ️User already was director general directives for he is free", 0, "md")
    else
 return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام مدیر برکنار شد*✅", 0, "md")
       end
@@ -591,17 +591,17 @@ end
    if cmd == "demote" then
 if not administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
     if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *мσ∂єяαтσя*❗️\n➖➖➖➖➖➖➖\nℹ️Robot deputy general instructions for the user and only he is free", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_ιѕ ησт α_ *мσ∂єяαтσя*❗️\n👤\nℹ️Robot deputy general instructions for the user and only he is free", 0, "md")
     else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون نبود*❗️\n➖➖➖➖➖➖➖\nℹ️کاربر معاون ربات نیست و فقط دستورات عمومی برای او ازاد است", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از قبل معاون نبود*❗️\n👤\nℹ️کاربر معاون ربات نیست و فقط دستورات عمومی برای او ازاد است", 0, "md")
    end
   end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *∂ємσтє∂*\n➖➖➖➖➖➖➖\nℹ️User group was removed from his position as deputy general directives for he is free today only", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐_Uѕєя_ "..user_name.."\n🆔ID : *"..data.id_.."*\n_нαѕ вєєη_ *∂ємσтє∂*\n👤\nℹ️User group was removed from his position as deputy general directives for he is free today only", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام معاون گروه برکنار شد*✅\n➖➖➖➖➖➖➖\nℹ️کاربر از مقام معاون گروه برکنار شد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "🌐کاربر : "..user_name.."\n🆔ایدی : *"..data.id_.."*\n*از مقام معاون گروه برکنار شد*✅\n👤\nℹ️کاربر از مقام معاون گروه برکنار شد اکنون فقط دستورات عمومی برای او ازاد است", 0, "md")
    end
 end
     if cmd == "whois" then
@@ -636,26 +636,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return '➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants'
+ return '➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants'
 else
- return '➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است'
+ return '➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است'
 end
 end
 
 local lock_link = data[tostring(target)]["settings"]["lock_link"] 
 if lock_link == "yes" then
 if not lang then
- return "⭐️*Lιηк* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Remove the lock was already active links and messages containing links will be removed not need to lock again\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Lιηк* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Remove the lock was already active links and messages containing links will be removed not need to lock again\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال لینک در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پاک کردن لینک از قبل فعال بود و پیام های حاوی لینک حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال لینک در گروه  از قبل ممنوع است\n👤\nℹ️قفل پاک کردن لینک از قبل فعال بود و پیام های حاوی لینک حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
 data[tostring(target)]["settings"]["lock_link"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Lιηк* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock link was active from now on all messages containing links will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Lιηк* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Lock link was active from now on all messages containing links will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال لینک در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل لینک فعال شد از این پس تمام پیام های حاوی لینک پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال لینک در گروه ممنوع شد\n👤\nℹ️قفل لینک فعال شد از این پس تمام پیام های حاوی لینک پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -665,25 +665,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local lock_link = data[tostring(target)]["settings"]["lock_link"]
  if lock_link == "no" then
 if not lang then
-return "⭐️*Lιηк* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send links from messages containing links to is not prohibited and can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Lιηк* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Send links from messages containing links to is not prohibited and can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
-return "⭐️ارسال لینک در گروه  از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ارسال لینک از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال لینک در گروه  از قبل ممنوع نیست🔓\n👤\nℹ️ارسال لینک از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_link"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Lιηк* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send link in the group was released and messages containing links can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Lιηк* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send link in the group was released and messages containing links can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ارسال لینک در گروه  ازاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال لینک در گروه ازاد شد و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال لینک در گروه  ازاد شد🔓\n👤\nℹ️ارسال لینک در گروه ازاد شد و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -694,26 +694,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_tag = data[tostring(target)]["settings"]["lock_tag"] 
 if lock_tag == "yes" then
 if not lang then
- return "⭐️*username* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Clear lock  and username [@] was already active and will be deleted messages containing not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*username* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Clear lock  and username [@] was already active and will be deleted messages containing not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال یوزرنیم در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پاک کردن یوزرنیم[@] از قبل فعال بود و پیام های حاوی ان حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال یوزرنیم در گروه  از قبل ممنوع است\n👤\nℹ️قفل پاک کردن یوزرنیم[@] از قبل فعال بود و پیام های حاوی ان حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["lock_tag"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*userneme* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock username [@] was activated from now on all messages containing it will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*userneme* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Lock username [@] was activated from now on all messages containing it will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال یوزرنیم در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل  یوزرنیم [@] فعال شد از این پس تمام پیام های حاوی ان پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال یوزرنیم در گروه ممنوع شد\n👤\nℹ️قفل  یوزرنیم [@] فعال شد از این پس تمام پیام های حاوی ان پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -723,25 +723,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_tag = data[tostring(target)]["settings"]["lock_tag"]
  if lock_tag == "no" then
 if not lang then
-return "⭐️*username* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send a  username [@] is not prohibited from before and messages containing links can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*username* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Send a  username [@] is not prohibited from before and messages containing links can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️ارسال یوزرنیم در گروه  از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ارسال یوزرنیم [@] از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال یوزرنیم در گروه  از قبل ممنوع نیست🔓\n👤\nℹ️ارسال یوزرنیم [@] از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_tag"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*username* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send a  username [@] in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*username* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send a  username [@] in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️ارسال یوزرنیم در گروه  ازاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال یوزرنیم [@] در گروه ازاد شد و پیام های حاوی ان پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال یوزرنیم در گروه  ازاد شد🔓\n👤\nℹ️ارسال یوزرنیم [@] در گروه ازاد شد و پیام های حاوی ان پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -751,26 +751,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_hashtag = data[tostring(target)]["settings"]["lock_hashtag"] 
 if lock_hashtag == "yes" then
 if not lang then
- return "⭐️*Tαg* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Clear lock hashtag []  was already active and will be deleted messages containing not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Tαg* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Clear lock hashtag []  was already active and will be deleted messages containing not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال هشتگ در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پاک کردن هشتگ []  از قبل فعال بود و پیام های حاوی ان حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال هشتگ در گروه  از قبل ممنوع است\n👤\nℹ️قفل پاک کردن هشتگ []  از قبل فعال بود و پیام های حاوی ان حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["lock_hashtag"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Tαg* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock hashtag [] was activated from now on all messages containing it will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Tαg* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Lock hashtag [] was activated from now on all messages containing it will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال هشتگ  در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل هشتگ [] فعال شد از این پس تمام پیام های حاوی ان پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال هشتگ  در گروه ممنوع شد\n👤\nℹ️قفل هشتگ [] فعال شد از این پس تمام پیام های حاوی ان پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -780,25 +780,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_tag = data[tostring(target)]["settings"]["lock_hashtag"]
  if lock_hashtag == "no" then
 if not lang then
-return "⭐️*Tαg* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send a hashtag [] is not prohibited from before and messages containing links can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Tαg* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Send a hashtag [] is not prohibited from before and messages containing links can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️ارسال هشتگ در گروه  از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ارسال هشتگ [] از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال هشتگ در گروه  از قبل ممنوع نیست🔓\n👤\nℹ️ارسال هشتگ [] از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_hashtag"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Tαg* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send a hashtag [] in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Tαg* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send a hashtag [] in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ارسال هشتگ و یوزرنیم در گروه  ازاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال هشتگ [] در گروه ازاد شد و پیام های حاوی ان پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال هشتگ و یوزرنیم در گروه  ازاد شد🔓\n👤\nℹ️ارسال هشتگ [] در گروه ازاد شد و پیام های حاوی ان پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -808,26 +808,26 @@ local function lock_mention(msg, data, target)
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_mention = data[tostring(target)]["settings"]["lock_mention"] 
 if lock_mention == "yes" then
 if not lang then
- return "⭐️*Mєηтιση* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Remove the lock was already active calls and messages will be deleted with no need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mєηтιση* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Remove the lock was already active calls and messages will be deleted with no need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال فراخوانی در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پاک کردن فراخوانی از قبل فعال بود و پیام های حاوی ان حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال فراخوانی در گروه  از قبل ممنوع است\n👤\nℹ️قفل پاک کردن فراخوانی از قبل فعال بود و پیام های حاوی ان حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["lock_mention"] = "yes"
 save_data(_config.moderation.data, data)
 if not lang then 
- return "⭐️*Mєηтιση* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Call lock was activated from now on all messages containing it will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mєηтιση* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Call lock was activated from now on all messages containing it will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else 
- return "⭐️ارسال فراخوانی در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل فراخوانی فعال شد از این پس تمام پیام های حاوی ان پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال فراخوانی در گروه ممنوع شد\n👤\nℹ️قفل فراخوانی فعال شد از این پس تمام پیام های حاوی ان پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -837,25 +837,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local lock_mention = data[tostring(target)]["settings"]["lock_mention"]
  if lock_mention == "no" then
 if not lang then
-return "⭐️*Mєηтιση* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Not prohibited from forwarding calls to and messages containing links can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mєηтιση* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Not prohibited from forwarding calls to and messages containing links can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️ارسال فراخوانی در گروه  از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ارسال فراخوانی از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال فراخوانی در گروه  از قبل ممنوع نیست🔓\n👤\nℹ️ارسال فراخوانی از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_mention"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mєηтιση* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send calling in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mєηтιση* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send calling in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ارسال  فراخوانی در گروه  ازاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال  فراخوانی در گروه ازاد شد و پیام های حاوی ان پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال  فراخوانی در گروه  ازاد شد🔓\n👤\nℹ️ارسال  فراخوانی در گروه ازاد شد و پیام های حاوی ان پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -866,26 +866,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_arabic = data[tostring(target)]["settings"]["lock_arabic"] 
 if lock_arabic == "yes" then
 if not lang then
- return "⭐️*Pєяѕιαη* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Remove the lock was already active Farsi and Persian removed messages containing letters do not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Pєяѕιαη* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Remove the lock was already active Farsi and Persian removed messages containing letters do not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال کلمات فارسی در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پاک کردن فارسی از قبل فعال بود و پیام های حاوی حروف فارسی حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال کلمات فارسی در گروه  از قبل ممنوع است\n👤\nℹ️قفل پاک کردن فارسی از قبل فعال بود و پیام های حاوی حروف فارسی حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
 data[tostring(target)]["settings"]["lock_arabic"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Pєяѕιαη* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Persian lock was activated from now on all messages containing Persian letters will be erased\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Pєяѕιαη* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Persian lock was activated from now on all messages containing Persian letters will be erased\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال کلمات فارسی در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل فارسی فعال شد از این پس تمام پیام های حاوی حروف فارسی پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال کلمات فارسی در گروه ممنوع شد\n👤\nℹ️قفل فارسی فعال شد از این پس تمام پیام های حاوی حروف فارسی پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -895,25 +895,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local lock_arabic = data[tostring(target)]["settings"]["lock_arabic"]
  if lock_arabic == "no" then
 if not lang then
-return "⭐️*Pєяѕιαη* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Write letters and messages containing links Farsi is not prohibited from before can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Pєяѕιαη* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Write letters and messages containing links Farsi is not prohibited from before can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️ارسال کلمات فارسی در گروه  از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ارسال حروف فارسی از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال کلمات فارسی در گروه  از قبل ممنوع نیست🔓\n👤\nℹ️ارسال حروف فارسی از قبل ممنوع نیست و پیام های حاوی لینک پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_arabic"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Pєяѕιαη* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send letters of Persian in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Pєяѕιαη* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send letters of Persian in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ارسال کلمات فارسی در گروه  ازاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال حروف فارسی در گروه ازاد شد و پیام های حاوی ان پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال کلمات فارسی در گروه  ازاد شد🔓\n👤\nℹ️ارسال حروف فارسی در گروه ازاد شد و پیام های حاوی ان پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -924,26 +924,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_edit = data[tostring(target)]["settings"]["lock_edit"] 
 if lock_edit == "yes" then
 if not lang then
- return "⭐️*E∂ιтιηg* _Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Clear lock to enable editing of the edited message will be deleted and not need to lock again\nby ☆*>*[@"..check_markdown(msg.from.username or "")..""
+ return "⭐️*E∂ιтιηg* _Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Clear lock to enable editing of the edited message will be deleted and not need to lock again\nby ☆*>*[@"..check_markdown(msg.from.username or "")..""
 elseif lang then
- return "⭐️ویرایش پیام در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پاک کردن ویرایش از قبل فعال بود و پیام های ویرایش شده پاک خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆*>*[@"..check_markdown(msg.from.username or "")..""
+ return "⭐️ویرایش پیام در گروه  از قبل ممنوع است\n👤\nℹ️قفل پاک کردن ویرایش از قبل فعال بود و پیام های ویرایش شده پاک خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆*>*[@"..check_markdown(msg.from.username or "")..""
 end
 else
  data[tostring(target)]["settings"]["lock_edit"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*E∂ιтιηg* _Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️The lock was activated from now on all messages will be erased Edit\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*E∂ιтιηg* _Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️The lock was activated from now on all messages will be erased Edit\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ویرایش پیام در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل ویرایش فعال شد از این پس تمام پیام های ویرایش شده پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ویرایش پیام در گروه ممنوع شد\n👤\nℹ️قفل ویرایش فعال شد از این پس تمام پیام های ویرایش شده پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -953,25 +953,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local lock_edit = data[tostring(target)]["settings"]["lock_edit"]
  if lock_edit == "no" then
 if not lang then
-return "⭐️*E∂ιтιηg* _Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Edit Message to edit messages were not prohibited and can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*E∂ιтιηg* _Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Edit Message to edit messages were not prohibited and can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️ویرایش پیام در گروه از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ویرایش پیام از قبل ممنوع نیست و پیام های ویرایش شده پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ویرایش پیام در گروه از قبل ممنوع نیست🔓\n👤\nℹ️ویرایش پیام از قبل ممنوع نیست و پیام های ویرایش شده پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_edit"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*E∂ιтιηg* _Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Edit message was released in edited message can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*E∂ιтιηg* _Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Edit message was released in edited message can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ویرایش پیام در گروه ازاد است🔓\n➖➖➖➖➖➖➖\nℹ️ویرایش پیام در گروه ازاد شد و پیام های ویرایش شده پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ویرایش پیام در گروه ازاد است🔓\n👤\nℹ️ویرایش پیام در گروه ازاد شد و پیام های ویرایش شده پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -982,26 +982,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_spam = data[tostring(target)]["settings"]["lock_spam"] 
 if lock_spam == "yes" then
 if not lang then
- return "⭐️*Sραм* _Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock out spam (long message) was already active and will be deleted messages containing not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Sραм* _Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Lock out spam (long message) was already active and will be deleted messages containing not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال هرزنامه ( اسپم) در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پاک کردن هرزنامه (پیام بلند) از قبل فعال بود و پیام های حاوی آن حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال هرزنامه ( اسپم) در گروه  از قبل ممنوع است\n👤\nℹ️قفل پاک کردن هرزنامه (پیام بلند) از قبل فعال بود و پیام های حاوی آن حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["lock_spam"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Sραм* _Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Spam lock (long message) was activated from now on all messages that contain it will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Sραм* _Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Spam lock (long message) was activated from now on all messages that contain it will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال هرزنامه ( اسپم) در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل هرزنامه (پیام بلند) فعال شد از این پس تمام پیام های حاوی آن پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال هرزنامه ( اسپم) در گروه ممنوع شد\n👤\nℹ️قفل هرزنامه (پیام بلند) فعال شد از این پس تمام پیام های حاوی آن پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1011,26 +1011,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local lock_spam = data[tostring(target)]["settings"]["lock_spam"]
  if lock_spam == "no" then
 if not lang then
-return "⭐️*Sραм* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Spam (long message) is not prohibited from before and messages containing spam (long messages) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Sραм* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Spam (long message) is not prohibited from before and messages containing spam (long messages) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال هرزنامه (اسپم) در گروه  از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ارسال هرزنامه (پیام بلند) از قبل ممنوع نیست و پیام های حاوی هرزنامه (پیام بلند) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال هرزنامه (اسپم) در گروه  از قبل ممنوع نیست🔓\n👤\nℹ️ارسال هرزنامه (پیام بلند) از قبل ممنوع نیست و پیام های حاوی هرزنامه (پیام بلند) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_spam"] = "no" 
 save_data(_config.moderation.data, data)
 if not lang then 
-return "⭐️*Sραм* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Spam (long message) in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Sραм* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Spam (long message) in the group was released and messages containing it can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال هرزنامه (اسپم) در گروه  ازاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال هرزنامه (پیام بلند) در گروه ازاد شد و پیام های حاوی آن پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال هرزنامه (اسپم) در گروه  ازاد شد🔓\n👤\nℹ️ارسال هرزنامه (پیام بلند) در گروه ازاد شد و پیام های حاوی آن پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1041,26 +1041,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_flood = data[tostring(target)]["settings"]["flood"] 
 if lock_flood == "yes" then
 if not lang then
- return "⭐️*Fℓσσ∂ιηg* _Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Clear lock to activate a barrage of messages, and messages will be deleted and the user trespassing fired a barrage, and does not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Fℓσσ∂ιηg* _Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Clear lock to activate a barrage of messages, and messages will be deleted and the user trespassing fired a barrage, and does not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال پیام مکرر در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پاک کردن پیام های رگباری از قبل فعال بود و پیام های رگباری حذف خواهند شد و کاربر خاطی اخراج میشود و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال پیام مکرر در گروه  از قبل ممنوع است\n👤\nℹ️قفل پاک کردن پیام های رگباری از قبل فعال بود و پیام های رگباری حذف خواهند شد و کاربر خاطی اخراج میشود و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["flood"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Fℓσσ∂ιηg* _Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock messages barrage barrage was activated from now on all messages will be deleted and the user gets fired trespassing\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Fℓσσ∂ιηg* _Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Lock messages barrage barrage was activated from now on all messages will be deleted and the user gets fired trespassing\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال  پیام مکرر در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل  پیام های رگباری فعال شد از این پس تمامی پیام های رگباری پاک خواهند شد و کاربر خاطی اخراج میشود\nتوسط  ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال  پیام مکرر در گروه ممنوع شد\n👤\nℹ️قفل  پیام های رگباری فعال شد از این پس تمامی پیام های رگباری پاک خواهند شد و کاربر خاطی اخراج میشود\nتوسط  ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1070,25 +1070,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local lock_flood = data[tostring(target)]["settings"]["flood"]
  if lock_flood == "no" then
 if not lang then
-return "⭐️*Flooding* _Is Not Locked_\n➖➖➖➖➖➖➖\nℹ️Send a message to is not prohibited by a barrage of showers and messages can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Flooding* _Is Not Locked_\n👤\nℹ️Send a message to is not prohibited by a barrage of showers and messages can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️ارسال پیام مکرر در گروه  از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ارسال پیام های رگباری از قبل ممنوع نیست و پیام های رگباری پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال پیام مکرر در گروه  از قبل ممنوع نیست🔓\n👤\nℹ️ارسال پیام های رگباری از قبل ممنوع نیست و پیام های رگباری پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["flood"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Flooding* _Has Been Unlocked_\n➖➖➖➖➖➖➖\nℹ️Send a message to is not prohibited by a barrage of showers and messages can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Flooding* _Has Been Unlocked_\n👤\nℹ️Send a message to is not prohibited by a barrage of showers and messages can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️ارسال پیام مکرر در گروه  ازاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال پیام های رگباری از قبل ممنوع نیست و پیام های رگباری پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال پیام مکرر در گروه  ازاد شد🔓\n👤\nℹ️ارسال پیام های رگباری از قبل ممنوع نیست و پیام های رگباری پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1099,26 +1099,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_bots = data[tostring(target)]["settings"]["lock_bots"] 
 if lock_bots == "yes" then
 if not lang then
- return "⭐️*Bσтѕ* _Pяσтєcтιση Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Lock robot was already active malicious and destructive robots will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Bσтѕ* _Pяσтєcтιση Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Lock robot was already active malicious and destructive robots will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️محافظت از گروه در برابر ربات ها از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️قفل ربات های مخرب از قبل فعال بود و ربات های مخرب حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️محافظت از گروه در برابر ربات ها از قبل فعال است\n👤\nℹ️قفل ربات های مخرب از قبل فعال بود و ربات های مخرب حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["lock_bots"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Bσтѕ* _Pяσтєcтιση Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Lock malicious bot was active from now on all malicious robots will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Bσтѕ* _Pяσтєcтιση Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Lock malicious bot was active from now on all malicious robots will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️محافظت از گروه در برابر ربات ها  فعال شد\n➖➖➖➖➖➖➖\nℹ️قفل ربات های مخرب فعال شد از این پس تمامی ربات های مخرب پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️محافظت از گروه در برابر ربات ها  فعال شد\n👤\nℹ️قفل ربات های مخرب فعال شد از این پس تمامی ربات های مخرب پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1128,25 +1128,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_bots = data[tostring(target)]["settings"]["lock_bots"]
  if lock_bots == "no" then
 if not lang then
-return "⭐️*Bσтѕ* _Pяσтєcтιση Iѕ Nσт Eηαвℓє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Sanctions malicious bot to bot malware is not prohibited and can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Bσтѕ* _Pяσтєcтιση Iѕ Nσт Eηαвℓє∂_🔓\n👤\nℹ️Sanctions malicious bot to bot malware is not prohibited and can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
-return "محافظت از گروه در برابر ربات ها غیر فعال است\n➖➖➖➖➖➖➖\nℹ️تحریم ربات های مخرب از قبل ممنوع نیست و ربات های مخرب پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "محافظت از گروه در برابر ربات ها غیر فعال است\n👤\nℹ️تحریم ربات های مخرب از قبل ممنوع نیست و ربات های مخرب پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_bots"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Bσтѕ* _Pяσтєcтιση Hαѕ Bєєη Dιѕαвℓє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Sanctions malicious bot was released in destructive robots can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Bσтѕ* _Pяσтєcтιση Hαѕ Bєєη Dιѕαвℓє∂_🔓\n👤\nℹ️Sanctions malicious bot was released in destructive robots can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️محافظت از گروه در برابر ربات ها  ازاد است\n➖➖➖➖➖➖➖\nℹ️تحریم ربات های مخرب در گروه ازاد شد و ربات های مخرب پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️محافظت از گروه در برابر ربات ها  ازاد است\n👤\nℹ️تحریم ربات های مخرب در گروه ازاد شد و ربات های مخرب پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1157,26 +1157,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_markdown = data[tostring(target)]["settings"]["lock_markdown"] 
 if lock_markdown == "yes" then
 if not lang then 
- return "⭐️*Mαяк∂σωη* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock text fonts you already have active and full text fonts will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mαяк∂σωη* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Lock text fonts you already have active and full text fonts will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال پیام دارای فونت در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل متن داری فونت از قبل فعال بود و تمامی متن های دارای فونت حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال پیام دارای فونت در گروه  از قبل ممنوع است\n👤\nℹ️قفل متن داری فونت از قبل فعال بود و تمامی متن های دارای فونت حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["lock_markdown"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mαяк∂σωη* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Text lock has been activated from now on all text fonts with font will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mαяк∂σωη* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Text lock has been activated from now on all text fonts with font will be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال پیام دارای فونت در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل متن دارای فونت فعال شد از این پس تمامی متن های دارای فونت پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال پیام دارای فونت در گروه ممنوع شد\n👤\nℹ️قفل متن دارای فونت فعال شد از این پس تمامی متن های دارای فونت پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1186,25 +1186,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_markdown = data[tostring(target)]["settings"]["lock_markdown"]
  if lock_markdown == "no" then
 if not lang then
-return "⭐️*Mαяк∂σωη* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send text has not prohibited the font of the text with font can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mαяк∂σωη* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Send text has not prohibited the font of the text with font can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
-return "⭐️ارسال پیام دارای فونت در گروه  از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ارسال متن دارای فونت از قبل ممنوع نیست و متن های دارای فونت پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال پیام دارای فونت در گروه  از قبل ممنوع نیست🔓\n👤\nℹ️ارسال متن دارای فونت از قبل ممنوع نیست و متن های دارای فونت پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_markdown"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mαяк∂σωη* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send text has been freed and text fonts in a font can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mαяк∂σωη* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send text has been freed and text fonts in a font can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️ارسال پیام درای فونت در گروه  ازاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال متن دارای فونت در گروه ازاد شد و متن های دارای فونت پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال پیام درای فونت در گروه  ازاد شد🔓\n👤\nℹ️ارسال متن دارای فونت در گروه ازاد شد و متن های دارای فونت پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1215,26 +1215,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_webpage = data[tostring(target)]["settings"]["lock_webpage"] 
 if lock_webpage == "yes" then
 if not lang then
- return "⭐️*Wєвραgє* _Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock was already active web pages and all links will be deleted web pages and does not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Wєвραgє* _Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Lock was already active web pages and all links will be deleted web pages and does not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال صفحات وب در گروه  از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل صفحات تحت وب از قبل فعال بود و تمامی  لینک صفحات تحت وب حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال صفحات وب در گروه  از قبل ممنوع است\n👤\nℹ️قفل صفحات تحت وب از قبل فعال بود و تمامی  لینک صفحات تحت وب حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["lock_webpage"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Wєвραgє* _Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock enabled web page will be deleted from the following link all web pages\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Wєвραgє* _Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Lock enabled web page will be deleted from the following link all web pages\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال صفحات وب در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل صفحات تحت وب فعال شد از این پس  لینک تمامی صفحات تحت وب پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال صفحات وب در گروه ممنوع شد\n👤\nℹ️قفل صفحات تحت وب فعال شد از این پس  لینک تمامی صفحات تحت وب پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1244,26 +1244,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_webpage = data[tostring(target)]["settings"]["lock_webpage"]
  if lock_webpage == "no" then
 if not lang then
-return "⭐️*Wєвραgє* _Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Web pages are not prohibited and link to web page can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Wєвραgє* _Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Web pages are not prohibited and link to web page can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️ارسال صفحات وب در گروه  از قبل ممنوع نیست🔓\n➖➖➖➖➖➖➖\nℹ️ارسال صفحات تحت وب از قبل ممنوع نیست و  لینک صفحات تحت وب پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال صفحات وب در گروه  از قبل ممنوع نیست🔓\n👤\nℹ️ارسال صفحات تحت وب از قبل ممنوع نیست و  لینک صفحات تحت وب پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_webpage"] = "no"
 save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Wєвραgє* _Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send web pages was released in the web page can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Wєвραgє* _Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send web pages was released in the web page can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ارسال صفحات وب در گروه  ازاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال صفحات تحت وب در گروه ازاد شد و صفحات تحت وب پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال صفحات وب در گروه  ازاد شد🔓\n👤\nℹ️ارسال صفحات تحت وب در گروه ازاد شد و صفحات تحت وب پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1274,26 +1274,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_pin = data[tostring(target)]["settings"]["lock_pin"] 
 if lock_pin == "yes" then
 if not lang then
- return "⭐️*Pιηηє∂ Mєѕѕαgє* _Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock pins and pin messages to the active message has been banned and not need to lock again\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Pιηηє∂ Mєѕѕαgє* _Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Lock pins and pin messages to the active message has been banned and not need to lock again\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️سنجاق کردن پیام در گروه از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل سنجاق پیام از قبل فعال بود و سنجاق پیام ممنوع شده و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️سنجاق کردن پیام در گروه از قبل ممنوع است\n👤\nℹ️قفل سنجاق پیام از قبل فعال بود و سنجاق پیام ممنوع شده و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["lock_pin"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Pιηηє∂ Mєѕѕαgє* _Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Pin lock pin message was activated after this message is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Pιηηє∂ Mєѕѕαgє* _Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Pin lock pin message was activated after this message is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️سنجاق کردن پیام در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل سنجاق پیام فعال شد از این پس سنجاق پیام ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️سنجاق کردن پیام در گروه ممنوع شد\n👤\nℹ️قفل سنجاق پیام فعال شد از این پس سنجاق پیام ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1303,26 +1303,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_pin = data[tostring(target)]["settings"]["lock_pin"]
  if lock_pin == "no" then
 if not lang then
-return "⭐️*Pιηηє∂ Mєѕѕαgє* _Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Pin message is not prohibited and is free to\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Pιηηє∂ Mєѕѕαgє* _Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Pin message is not prohibited and is free to\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️سنجاق کردن پیام در گروه ممنوع نمیباشد🔓\n➖➖➖➖➖➖➖\nℹ️سنجاق پیام از قبل ممنوع نیست و آزاد میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️سنجاق کردن پیام در گروه ممنوع نمیباشد🔓\n👤\nℹ️سنجاق پیام از قبل ممنوع نیست و آزاد میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["lock_pin"] = "no"
 save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Pιηηє∂ Mєѕѕαgє* _Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Pin message was released in groups is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Pιηηє∂ Mєѕѕαgє* _Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Pin message was released in groups is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️سنجاق کردن پیام در گروه آزاد شد🔓\n➖➖➖➖➖➖➖\nℹ️سنجاق پیام در گروه ازاد شد و ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️سنجاق کردن پیام در گروه آزاد شد🔓\n👤\nℹ️سنجاق پیام در گروه ازاد شد و ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1332,26 +1332,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_english = data[tostring(target)]["settings"]["english"] 
 if lock_english == "yes" then
 if not lang then
- return "⭐️*Eηgℓιѕн* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️English letters and messages containing pre-activated lock English letters will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Eηgℓιѕн* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️English letters and messages containing pre-activated lock English letters will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️نوشته انگلیسی در گروه از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل حروف انگلیسی از قبل فعال بود و پیام های حاوی حروف انگلیسی پاک خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️نوشته انگلیسی در گروه از قبل ممنوع است\n👤\nℹ️قفل حروف انگلیسی از قبل فعال بود و پیام های حاوی حروف انگلیسی پاک خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["english"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Eηgℓιѕн* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️English caps lock is activated from now on all messages containing English letters will be erased\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Eηgℓιѕн* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️English caps lock is activated from now on all messages containing English letters will be erased\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️نوشته انگلیسی در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل حروف انگلیسی فعال شد از این پس تمامی پیام های حاوی حروف انگلیسی پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️نوشته انگلیسی در گروه ممنوع شد\n👤\nℹ️قفل حروف انگلیسی فعال شد از این پس تمامی پیام های حاوی حروف انگلیسی پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1361,25 +1361,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_english = data[tostring(target)]["settings"]["english"]
  if lock_english == "no" then
 if not lang then
-return "⭐️*єηgℓιѕн* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Write letters and messages containing banned English from the English letters can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*єηgℓιѕн* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Write letters and messages containing banned English from the English letters can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️نوشته انگلیسی در گروه ممنوع نمیباشد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال حروف انگلیسی از قبل ممنوع نیست و پیام های حاوی حروف انگلیسی پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️نوشته انگلیسی در گروه ممنوع نمیباشد🔓\n👤\nℹ️ارسال حروف انگلیسی از قبل ممنوع نیست و پیام های حاوی حروف انگلیسی پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["english"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Eηgℓιѕн* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send letters of the English in the group was released and messages containing English letters can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Eηgℓιѕн* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send letters of the English in the group was released and messages containing English letters can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️نوشته انگلیسی در گروه آزاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال حروف انگلیسی  در گروه ازاد شد و پیام های حاوی حروف انگلیسی پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️نوشته انگلیسی در گروه آزاد شد🔓\n👤\nℹ️ارسال حروف انگلیسی  در گروه ازاد شد و پیام های حاوی حروف انگلیسی پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1389,26 +1389,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_emoji = data[tostring(target)]["settings"]["emoji"] 
 if lock_emoji == "yes" then
 if not lang then
- return "⭐️*Eмσנι* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock emoticons (emoji) was pre-activated and send emoticons (emoji) is prohibited and will not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Eмσנι* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Lock emoticons (emoji) was pre-activated and send emoticons (emoji) is prohibited and will not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️نوشته ایموجی در گروه از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل شکلک (ایموجی) از قبل فعال بود و ارسال شکلک (ایموجی) ممنوع میباشد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️نوشته ایموجی در گروه از قبل ممنوع است\n👤\nℹ️قفل شکلک (ایموجی) از قبل فعال بود و ارسال شکلک (ایموجی) ممنوع میباشد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["emoji"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Eмσנι* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock emoticons (emoji) is enabled it will send emoticons (emoji) is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Eмσנι* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Lock emoticons (emoji) is enabled it will send emoticons (emoji) is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️نوشته ایموجی در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل شکلک (ایموجی) فعال شد از این پس ارسال شکلک (ایموجی) ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️نوشته ایموجی در گروه ممنوع شد\n👤\nℹ️قفل شکلک (ایموجی) فعال شد از این پس ارسال شکلک (ایموجی) ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1418,25 +1418,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_emoji = data[tostring(target)]["settings"]["emoji"]
  if lock_emoji == "no" then
 if not lang then
-return "⭐️*Eмσנι* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send emoticons (emoji) is not prohibited in advance and send Emoji is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Eмσנι* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Send emoticons (emoji) is not prohibited in advance and send Emoji is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️نوشته ایموجی در گروه ممنوع نمیباشد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال شکلک (ایموجی) از قبل ممنوع نیست و  ارسال اموجی ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️نوشته ایموجی در گروه ممنوع نمیباشد🔓\n👤\nℹ️ارسال شکلک (ایموجی) از قبل ممنوع نیست و  ارسال اموجی ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["emoji"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "*Eмσנι* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send emoticons (emoji) in the group was released and emoticons (emoji) will not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "*Eмσנι* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send emoticons (emoji) in the group was released and emoticons (emoji) will not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️نوشته ایموجی در گروه آزاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال شکلک (ایموجی) در گروه ازاد شد و شکلک (ایموجی) پاک نمیشود\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️نوشته ایموجی در گروه آزاد شد🔓\n👤\nℹ️ارسال شکلک (ایموجی) در گروه ازاد شد و شکلک (ایموجی) پاک نمیشود\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1446,26 +1446,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_ads = data[tostring(target)]["settings"]["ads"] 
 if lock_ads == "yes" then
 if not lang then
- return "⭐️*A∂ѕ* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Advertising lock (challenge) was already active and content of advertisements (challenge) will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*A∂ѕ* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Advertising lock (challenge) was already active and content of advertisements (challenge) will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال تبلیغات در گروه از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل تبلیغات (چالش و...) از قبل فعال بود و محتوای حاوی تبلیغات (چالش و...) حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال تبلیغات در گروه از قبل ممنوع است\n👤\nℹ️قفل تبلیغات (چالش و...) از قبل فعال بود و محتوای حاوی تبلیغات (چالش و...) حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["ads"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*A∂ѕ* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Advertising lock (challenge) was activated from now on all messages containing advertising (challenge) will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*A∂ѕ* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Advertising lock (challenge) was activated from now on all messages containing advertising (challenge) will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال تبلیغات در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل تبلیغات (چالش و...) فعال شد از این پس تمامی پیام های حاوی تبلیغات (چالش و...) پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال تبلیغات در گروه ممنوع شد\n👤\nℹ️قفل تبلیغات (چالش و...) فعال شد از این پس تمامی پیام های حاوی تبلیغات (چالش و...) پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1475,25 +1475,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_ads = data[tostring(target)]["settings"]["ads"]
  if lock_ads == "no" then
 if not lang then
-return "⭐️*α∂ѕ* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Advertising (challenge) is not prohibited from before and messages containing advertising (and challenges) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*α∂ѕ* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Advertising (challenge) is not prohibited from before and messages containing advertising (and challenges) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "ارسال تبلیغات در گروه ممنوع نمیباشد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال تبلیغات (چالش و...) از قبل ممنوع نیست و پیام های حاوی تبلیغات (چالش و...) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "ارسال تبلیغات در گروه ممنوع نمیباشد🔓\n👤\nℹ️ارسال تبلیغات (چالش و...) از قبل ممنوع نیست و پیام های حاوی تبلیغات (چالش و...) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["ads"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*A∂ѕ* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Advertising (and challenges) in the group was released and messages containing advertising (and challenges) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*A∂ѕ* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Advertising (and challenges) in the group was released and messages containing advertising (and challenges) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ارسال تبلیغات در گروه آزاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال تبلیغات (چالش و...) در گروه ازاد شد و پیام های حاوی تبلیغات (چالش و...) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال تبلیغات در گروه آزاد شد🔓\n👤\nℹ️ارسال تبلیغات (چالش و...) در گروه ازاد شد و پیام های حاوی تبلیغات (چالش و...) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1503,26 +1503,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_views = data[tostring(target)]["settings"]["views"] 
 if lock_views == "yes" then
 if not lang then
- return "⭐️*Vιєωѕ* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock messages with Visitors (Sin) was activated and messages have already visited (Sin) will be deleted not need to lock again\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Vιєωѕ* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️Lock messages with Visitors (Sin) was activated and messages have already visited (Sin) will be deleted not need to lock again\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال پست ویو دار در گروه از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پیام های دارای بازدید (سین) از قبل فعال بود و پیام های دارای  بازدید (سین)  حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال پست ویو دار در گروه از قبل ممنوع است\n👤\nℹ️قفل پیام های دارای بازدید (سین) از قبل فعال بود و پیام های دارای  بازدید (سین)  حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["views"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Vιєωѕ* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock messages with Visitors (Sin) was activated from now on all messages with Visitors (Sin) will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Vιєωѕ* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Lock messages with Visitors (Sin) was activated from now on all messages with Visitors (Sin) will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال پست ویو دار در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل پیام های دارای بازدید (سین) فعال شد از این پس تمامی پیام های دارای بازدید (سین)  پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال پست ویو دار در گروه ممنوع شد\n👤\nℹ️قفل پیام های دارای بازدید (سین) فعال شد از این پس تمامی پیام های دارای بازدید (سین)  پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1532,25 +1532,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_views = data[tostring(target)]["settings"]["views"]
  if lock_views == "no" then
 if not lang then
-return "⭐️*Vιєωѕ* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send messages with Visitors (Sein) is not prohibited from before and messages with flashing can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Vιєωѕ* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Send messages with Visitors (Sein) is not prohibited from before and messages with flashing can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️ارسال پست ویو دار در گروه ممنوع نمیباشد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال پیام های دارای بازدید(سین) از قبل ممنوع نیست و پیام های دارای بازدید(سین) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال پست ویو دار در گروه ممنوع نمیباشد🔓\n👤\nℹ️ارسال پیام های دارای بازدید(سین) از قبل ممنوع نیست و پیام های دارای بازدید(سین) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["views"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Vιєωѕ* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send messages with Visitors (Sin) was released in groups have visited messages (Sin) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Vιєωѕ* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send messages with Visitors (Sin) was released in groups have visited messages (Sin) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ارسال پست ویو دار در گروه آزاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال پیام های دارای بازدید(سین) در گروه ازاد شد و پیام های دارای  بازدید(سین) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال پست ویو دار در گروه آزاد شد🔓\n👤\nℹ️ارسال پیام های دارای بازدید(سین) در گروه ازاد شد و پیام های دارای  بازدید(سین) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1559,26 +1559,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_fosh = data[tostring(target)]["settings"]["fosh"] 
 if lock_fosh == "yes" then
 if not lang then
- return "⭐️*Fosh* _Posting Is Already Locked_\n➖➖➖➖➖➖➖\nℹ️Lock vulgar words (swearing) was already active and messages containing vulgar words (swearing) will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Fosh* _Posting Is Already Locked_\n👤\nℹ️Lock vulgar words (swearing) was already active and messages containing vulgar words (swearing) will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال کلمات رکیک در گروه از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل  کلمات رکیک (فحش) از قبل فعال بود و پیام های حاوی کلمات رکیک (فحش) پاک خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال کلمات رکیک در گروه از قبل ممنوع است\n👤\nℹ️قفل  کلمات رکیک (فحش) از قبل فعال بود و پیام های حاوی کلمات رکیک (فحش) پاک خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["fosh"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Fσѕн* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️Lock vulgar words (swearing) was activated from now on all messages containing vulgar words (swearing) will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Fσѕн* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️Lock vulgar words (swearing) was activated from now on all messages containing vulgar words (swearing) will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال کلمات رکیک در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل کلمات رکیک (فحش) فعال شد از این پس تمامی پیام های حاوی کلمات رکیک (فحش) پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال کلمات رکیک در گروه ممنوع شد\n👤\nℹ️قفل کلمات رکیک (فحش) فعال شد از این پس تمامی پیام های حاوی کلمات رکیک (فحش) پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1588,41 +1588,41 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_fosh = data[tostring(target)]["settings"]["english"]
  if lock_fosh == "no" then
 if not lang then
-return "⭐️*Fσѕн* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Arsalklmat profanity (cursing) is not prohibited from before and messages containing vulgar words (swearing) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Fσѕн* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️Arsalklmat profanity (cursing) is not prohibited from before and messages containing vulgar words (swearing) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️ارسال کلمات رکیک در گروه ممنوع نمیباشد🔓\n➖➖➖➖➖➖➖\nℹ️ارسالکلمات رکیک (فحش) از قبل ممنوع نیست و پیام های حاوی کلمات رکیک (فحش) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال کلمات رکیک در گروه ممنوع نمیباشد🔓\n👤\nℹ️ارسالکلمات رکیک (فحش) از قبل ممنوع نیست و پیام های حاوی کلمات رکیک (فحش) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["fosh"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Fσѕн* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️Send vulgar words (swearing) in the group was released and messages containing vulgar words (swearing) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Fσѕн* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️Send vulgar words (swearing) in the group was released and messages containing vulgar words (swearing) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ارسال کلمات رکیک در گروه آزاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال کلمات رکیک (فحش) در گروه ازاد شد و پیام های حاوی کلمات رکیک (فحش) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال کلمات رکیک در گروه آزاد شد🔓\n👤\nℹ️ارسال کلمات رکیک (فحش) در گروه ازاد شد و پیام های حاوی کلمات رکیک (فحش) پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 local lock_pin = data[tostring(target)]["settings"]["lock_pin"]
  if lock_pin == "no" then
 if not lang then
-return "⭐️*Pιηηє∂ Mєѕѕαgє* _Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️" 
+return "⭐️*Pιηηє∂ Mєѕѕαgє* _Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️" 
 elseif lang then
-return "⭐️سنجاق کردن پیام در گروه ممنوع نمیباشد🔓\n➖➖➖➖➖➖➖\nℹ️"
+return "⭐️سنجاق کردن پیام در گروه ممنوع نمیباشد🔓\n👤\nℹ️"
 end
 else 
 data[tostring(target)]["settings"]["lock_pin"] = "no"
 save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Pιηηє∂ Mєѕѕαgє* _Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️" 
+return "⭐️*Pιηηє∂ Mєѕѕαgє* _Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️" 
 else
-return "⭐️سنجاق کردن پیام در گروه آزاد شد🔓\n➖➖➖➖➖➖➖\nℹ️"
+return "⭐️سنجاق کردن پیام در گروه آزاد شد🔓\n👤\nℹ️"
 end
 end
 end
@@ -1632,26 +1632,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local lock_tab = data[tostring(target)]["settings"]["tab"] 
 if lock_tab == "yes" then
 if not lang then
- return "⭐️*Tabchi* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️lock (TABCHI) was already active and content of  (tabchi) will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Tabchi* _Pσѕтιηg Iѕ Aℓяєα∂у Lσcкє∂_\n👤\nℹ️lock (TABCHI) was already active and content of  (tabchi) will be deleted and not need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️ارسال پیام اضافه کردن شماره در گروه از قبل ممنوع است\n➖➖➖➖➖➖➖\nℹ️قفل پیام اضافه کردن شماره از قبل فعال بود و محتوای حاوی پیام اضافه کردن شماره حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال پیام اضافه کردن شماره در گروه از قبل ممنوع است\n👤\nℹ️قفل پیام اضافه کردن شماره از قبل فعال بود و محتوای حاوی پیام اضافه کردن شماره حذف خواهند شد و نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["tab"] = "yes"
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*tabchi* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n➖➖➖➖➖➖➖\nℹ️lock (tabchi) was activated from now on all messages containing  (tabchi) will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*tabchi* _Pσѕтιηg Hαѕ Bєєη Lσcкє∂_\n👤\nℹ️lock (tabchi) was activated from now on all messages containing  (tabchi) will be deleted\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️ارسال پیام اضافه کردن شماره در گروه ممنوع شد\n➖➖➖➖➖➖➖\nℹ️قفل اضافه کردن شماره فعال شد از این پس تمامی پیام های حاوی پیام اضافه کردن شماره پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️ارسال پیام اضافه کردن شماره در گروه ممنوع شد\n👤\nℹ️قفل اضافه کردن شماره فعال شد از این پس تمامی پیام های حاوی پیام اضافه کردن شماره پاک خواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1661,25 +1661,25 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local lock_tab = data[tostring(target)]["settings"]["tab"]
  if lock_tab == "no" then
 if not lang then
-return "⭐️*tabchi* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️(tabchi) is not prohibited from before and messages containing (tachi) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*tabchi* _Pσѕтιηg Iѕ Nσт Lσcкє∂_🔓\n👤\nℹ️(tabchi) is not prohibited from before and messages containing (tachi) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "ارسال پیام اضافه کردن شماره در گروه ممنوع نمیباشد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال پیام اضافه کردن شماره از قبل ممنوع نیست و پیام های حاوی پیام اضافه کردن شماره پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "ارسال پیام اضافه کردن شماره در گروه ممنوع نمیباشد🔓\n👤\nℹ️ارسال پیام اضافه کردن شماره از قبل ممنوع نیست و پیام های حاوی پیام اضافه کردن شماره پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["tab"] = "no" save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*tabchi* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n➖➖➖➖➖➖➖\nℹ️(tabchi) in the group was released and messages containing advertising (and challenges) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*tabchi* _Pσѕтιηg Hαѕ Bєєη Uηℓσcкє∂_🔓\n👤\nℹ️(tabchi) in the group was released and messages containing advertising (and challenges) can not be cleared\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️ارسال پیام اضافه کردن شماره در گروه آزاد شد🔓\n➖➖➖➖➖➖➖\nℹ️ارسال پیام اضافه کردن شماره در گروه ازاد شد و پیام های حاوی پیام اضافه کردن شماره پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️ارسال پیام اضافه کردن شماره در گروه آزاد شد🔓\n👤\nℹ️ارسال پیام اضافه کردن شماره در گروه ازاد شد و پیام های حاوی پیام اضافه کردن شماره پاک نخواهند شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1690,26 +1690,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then 
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants" 
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants" 
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_all = data[tostring(target)]["settings"]["mute_all"] 
 if mute_all == "yes" then 
 if not lang then
-return "⭐️*Mυтє Aℓℓ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Delete all messages beforehand was active from now on all the northern group text messages and deleted photos\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє Aℓℓ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Delete all messages beforehand was active from now on all the northern group text messages and deleted photos\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
-return "⭐️بیصدا کردن همه  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن تمامی پیام ها  از قبل فعال بود از این پس تمامی پیام های گروه شمال متن عکس و... پاک میشوند\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن همه  از قبل فعال است\n👤\nℹ️پاک کردن تمامی پیام ها  از قبل فعال بود از این پس تمامی پیام های گروه شمال متن عکس و... پاک میشوند\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_all"] = "yes"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Aℓℓ* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Erase all messages activated from now on all the northern group text messages and deleted photos\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє Aℓℓ* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Erase all messages activated from now on all the northern group text messages and deleted photos\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️بیصدا کردن همه فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن تمامی پیام ها فعال شد از این پس تمامی پیام های گروه شمال متن عکس و... پاک میشوند\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن همه فعال شد\n👤\nℹ️پاک کردن تمامی پیام ها فعال شد از این پس تمامی پیام های گروه شمال متن عکس و... پاک میشوند\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1719,26 +1719,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then 
 if not lang then
-return "♯*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Erase all messages activated from now on all the northern group text messages and deleted photos" 
+return "♯*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Erase all messages activated from now on all the northern group text messages and deleted photos" 
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️پاک کردن تمامی پیام ها فعال شد از این پس تمامی پیام های گروه شمال متن عکس و... پاک میشوند"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️پاک کردن تمامی پیام ها فعال شد از این پس تمامی پیام های گروه شمال متن عکس و... پاک میشوند"
 end
 end
 
 local mute_all = data[tostring(target)]["settings"]["mute_all"] 
 if mute_all == "no" then 
 if not lang then
-return "⭐️*Mυтє Aℓℓ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Erase all messages disabled and do not have to disable again\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Aℓℓ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Erase all messages disabled and do not have to disable again\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن همه فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن تمامی پیام ها غیرفعال میباشد و نیازی به غیر فعال کردن دوباره ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن همه فعال نیست🔊\n👤\nℹ️پاک کردن تمامی پیام ها غیرفعال میباشد و نیازی به غیر فعال کردن دوباره ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_all"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Aℓℓ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Erase all messages disabled and out of silent mode\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Aℓℓ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Erase all messages disabled and out of silent mode\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن همه غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن تمامی پیام ها غیر فعال شد و گروه از حالت سکوت خارج شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن همه غیر فعال شد🔊\n👤\nℹ️پاک کردن تمامی پیام ها غیر فعال شد و گروه از حالت سکوت خارج شد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end 
 end
 end
@@ -1749,26 +1749,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_gif = data[tostring(target)]["settings"]["mute_gif"] 
 if mute_gif == "yes" then
 if not lang then
- return "⭐️*Mυтє Gιƒ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Remove the lock was already active animated images[gif] and messages will be deleted with no need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Gιƒ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Remove the lock was already active animated images[gif] and messages will be deleted with no need to lock again.\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن تصاویر متحرک  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️قفل پاک کردن تصاویر متحرک[گیف] از قبل فعال بود و پیام های حاوی آن حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن تصاویر متحرک  از قبل فعال است\n👤\nℹ️قفل پاک کردن تصاویر متحرک[گیف] از قبل فعال بود و پیام های حاوی آن حذف خواهند شد نیازی به قفل دوباره نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_gif"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then 
- return "⭐️*Mυтє Gιƒ* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear Motion Picture [Gyf] is activated it will send the Motion [Gyf] ban\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Gιƒ* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clear Motion Picture [Gyf] is activated it will send the Motion [Gyf] ban\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن تصاویر متحرک فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن تصاویر متحرک [گیف] فعال شد از این پس ارسال تصاویر متحرک [گیف] ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن تصاویر متحرک فعال شد\n👤\nℹ️پاک کردن تصاویر متحرک [گیف] فعال شد از این پس ارسال تصاویر متحرک [گیف] ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1778,26 +1778,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local mute_gif = data[tostring(target)]["settings"]["mute_gif"]
  if mute_gif == "no" then
 if not lang then
-return "⭐️*Mυтє Gιƒ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear Motion Picture [Gyf] is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Gιƒ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Clear Motion Picture [Gyf] is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن تصاویر متحرک فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن تصاویر متحرک [گیف] فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن تصاویر متحرک فعال نیست🔊\n👤\nℹ️پاک کردن تصاویر متحرک [گیف] فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_gif"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Gιƒ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear Motion Picture [Gyf] was inactive and write Savyr Motion [Gyf] is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Gιƒ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear Motion Picture [Gyf] was inactive and write Savyr Motion [Gyf] is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن  تصاویر متحرک غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن تصاویر متحرک [گیف] غیر فعال شد و  ارسال صاویر متحرک [گیف] ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن  تصاویر متحرک غیر فعال شد🔊\n👤\nℹ️پاک کردن تصاویر متحرک [گیف] غیر فعال شد و  ارسال صاویر متحرک [گیف] ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1807,26 +1807,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_game = data[tostring(target)]["settings"]["mute_game"] 
 if mute_game == "yes" then
 if not lang then
- return "⭐️*Mυтє Gαмє* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear the game was already enabled web browser game is prohibited Post\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Gαмє* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Clear the game was already enabled web browser game is prohibited Post\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن بازی های تحت وب  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن بازی تحت وب  از قبل فعال بود و ارسال بازی تحت وب ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن بازی های تحت وب  از قبل فعال است\n👤\nℹ️پاک کردن بازی تحت وب  از قبل فعال بود و ارسال بازی تحت وب ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_game"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Gαмє* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear Web-enabled games it will send the browser game is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Gαмє* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clear Web-enabled games it will send the browser game is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن بازی های تحت وب   فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن بازی های تحت وب فعال شد از این پس ارسال بازی تحت وب ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن بازی های تحت وب   فعال شد\n👤\nℹ️پاک کردن بازی های تحت وب فعال شد از این پس ارسال بازی تحت وب ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1836,26 +1836,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local mute_game = data[tostring(target)]["settings"]["mute_game"]
  if mute_game == "no" then
 if not lang then
-return "⭐️*Mυтє Gαмє* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear browser game is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Gαмє* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Clear browser game is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن بازی های تحت وب فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن بازی تحت وب فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن بازی های تحت وب فعال نیست🔊\n👤\nℹ️پاک کردن بازی تحت وب فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_game"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "⭐️*Mυтє Gαмє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear off the web games and web games is not prohibited Post\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Gαмє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear off the web games and web games is not prohibited Post\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن بازی های تحت وب  غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن بازی های تحت وب غیر فعال شد و  ارسال بازی تحت وب ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن بازی های تحت وب  غیر فعال شد🔊\n👤\nℹ️پاک کردن بازی های تحت وب غیر فعال شد و  ارسال بازی تحت وب ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1865,26 +1865,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_inline = data[tostring(target)]["settings"]["mute_inline"] 
 if mute_inline == "yes" then
 if not lang then
- return "⭐️*Mυтє Iηℓιηє* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear glass link and send the link to be active glass is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Iηℓιηє* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Clear glass link and send the link to be active glass is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن کیبورد شیشه ای از قبل فعال است🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن لینک شیشه ای  از قبل فعال بود و ارسال لینک شیشه ای ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن کیبورد شیشه ای از قبل فعال است🔊\n👤\nℹ️پاک کردن لینک شیشه ای  از قبل فعال بود و ارسال لینک شیشه ای ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_inline"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Iηℓιηє* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear glass link is activated it will send the link glass is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Iηℓιηє* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clear glass link is activated it will send the link glass is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن کیبورد شیشه ای فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن لینک های شیشه ای فعال شد از این پس ارسال لینک شیشه ای ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن کیبورد شیشه ای فعال شد\n👤\nℹ️پاک کردن لینک های شیشه ای فعال شد از این پس ارسال لینک شیشه ای ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1894,26 +1894,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local mute_inline = data[tostring(target)]["settings"]["mute_inline"]
  if mute_inline == "no" then
 if not lang then
-return "⭐️*Mυтє Iηℓιηє* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear glass link is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Iηℓιηє* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Clear glass link is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن کیبورد شیشه ای فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن لینک های شیشه ای فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن کیبورد شیشه ای فعال نیست🔊\n👤\nℹ️پاک کردن لینک های شیشه ای فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_inline"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Iηℓιηє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear glass disabled links and send the link glass is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Iηℓιηє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear glass disabled links and send the link glass is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن کیبورد شیشه ای  غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن لینک های شیشه ای غیر فعال شد و  ارسال لینک شیشه ای ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن کیبورد شیشه ای  غیر فعال شد🔊\n👤\nℹ️پاک کردن لینک های شیشه ای غیر فعال شد و  ارسال لینک شیشه ای ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1923,26 +1923,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_text = data[tostring(target)]["settings"]["mute_text"] 
 if mute_text == "yes" then
 if not lang then
- return "⭐️*Mυтє Tєχт* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear Text of the draft text is to be active\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Tєχт* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Clear Text of the draft text is to be active\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن متن  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن متن از قبل فعال بود و ارسال متن ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن متن  از قبل فعال است\n👤\nℹ️پاک کردن متن از قبل فعال بود و ارسال متن ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_text"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Tєχт* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear Text is enabled, it will send the text is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Tєχт* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clear Text is enabled, it will send the text is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن متن فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن متن فعال شد از این پس ارسال متن ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن متن فعال شد\n👤\nℹ️پاک کردن متن فعال شد از این پس ارسال متن ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1952,26 +1952,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local mute_text = data[tostring(target)]["settings"]["mute_text"]
  if mute_text == "no" then
 if not lang then
-return "⭐️*Mυтє Tєχт* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear Text is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє Tєχт* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Clear Text is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
-return "⭐️بیصدا کردن  متن فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن متن فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️بیصدا کردن  متن فعال نیست🔊\n👤\nℹ️پاک کردن متن فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 end
 else 
 data[tostring(target)]["settings"]["mute_text"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Tєχт* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clean Text is disabled and is not prohibited text message\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Tєχт* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clean Text is disabled and is not prohibited text message\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن  متن غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن متن غیر فعال شد و  ارسال متن ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن  متن غیر فعال شد🔊\n👤\nℹ️پاک کردن متن غیر فعال شد و  ارسال متن ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -1981,26 +1981,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_photo = data[tostring(target)]["settings"]["mute_photo"] 
 if mute_photo == "yes" then
 if not lang then
- return "⭐️*Mυтє Pнσтσ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear Photo to be active and submit photos is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Pнσтσ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Clear Photo to be active and submit photos is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن عکس  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن عکس  از قبل فعال بود از و ارسال عکس ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن عکس  از قبل فعال است\n👤\nℹ️پاک کردن عکس  از قبل فعال بود از و ارسال عکس ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_photo"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Pнσтσ* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear was activated from the then submit photos is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Pнσтσ* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clear was activated from the then submit photos is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن عکس فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن عکس فعال شد از این پس ارسال عکس ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن عکس فعال شد\n👤\nℹ️پاک کردن عکس فعال شد از این پس ارسال عکس ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2010,26 +2010,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
  
 local mute_photo = data[tostring(target)]["settings"]["mute_photo"]
  if mute_photo == "no" then
 if not lang then
-return "⭐️*Mυтє Pнσтσ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear photos are not active and do not disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Pнσтσ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Clear photos are not active and do not disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن عکس فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن عکس فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن عکس فعال نیست🔊\n👤\nℹ️پاک کردن عکس فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_photo"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Pнσтσ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear disabled photos and send photos is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Pнσтσ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear disabled photos and send photos is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن  عکس غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن عکس غیر فعال شد و  ارسال عکس ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن  عکس غیر فعال شد🔊\n👤\nℹ️پاک کردن عکس غیر فعال شد و  ارسال عکس ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2039,26 +2039,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_video = data[tostring(target)]["settings"]["mute_video"] 
 if mute_video == "yes" then
 if not lang then
- return "⭐️*Mυтє Vι∂єσ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear film and upload videos is forbidden to be active\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Vι∂єσ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Clear film and upload videos is forbidden to be active\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن ویدیو  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن فیلم از قبل فعال بود و ارسال فیلم ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن ویدیو  از قبل فعال است\n👤\nℹ️پاک کردن فیلم از قبل فعال بود و ارسال فیلم ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_video"] = "yes" 
 save_data(_config.moderation.data, data)
 if not lang then 
- return "⭐️*Mυтє Vι∂єσ* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Remove this film was enabled after posting videos is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Vι∂єσ* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Remove this film was enabled after posting videos is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن ویدیو فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن فیلم فعال شد از این پس ارسال فیلم ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن ویدیو فعال شد\n👤\nℹ️پاک کردن فیلم فعال شد از این پس ارسال فیلم ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2068,26 +2068,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local mute_video = data[tostring(target)]["settings"]["mute_video"]
  if mute_video == "no" then
 if not lang then
-return "⭐️*Mυтє Vι∂єσ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear film is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Vι∂єσ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Clear film is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن ویدیو فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن فیلم فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن ویدیو فعال نیست🔊\n👤\nℹ️پاک کردن فیلم فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_video"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Vι∂єσ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear disabled movies and upload videos is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Vι∂єσ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear disabled movies and upload videos is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن ویدیو غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن فیلم غیر فعال شد و  ارسال فیلم ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن ویدیو غیر فعال شد🔊\n👤\nℹ️پاک کردن فیلم غیر فعال شد و  ارسال فیلم ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2097,26 +2097,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_audio = data[tostring(target)]["settings"]["mute_audio"] 
 if mute_audio == "yes" then
 if not lang then
- return "⭐️*Mυтє Aυ∂ισ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Deleting songs already was active and write songs is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Aυ∂ισ* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Deleting songs already was active and write songs is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن اهنگ  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن آهنگ از قبل فعال بود و ارسال آهنگ ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن اهنگ  از قبل فعال است\n👤\nℹ️پاک کردن آهنگ از قبل فعال بود و ارسال آهنگ ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_audio"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Aυ∂ισ* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear active track is henceforth forbidden to write songs\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Aυ∂ισ* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clear active track is henceforth forbidden to write songs\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else 
-return "⭐️بیصدا کردن اهنگ فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن آهنگ فعال شد از این پس ارسال آهنگ ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن اهنگ فعال شد\n👤\nℹ️پاک کردن آهنگ فعال شد از این پس ارسال آهنگ ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2126,26 +2126,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local mute_audio = data[tostring(target)]["settings"]["mute_audio"]
  if mute_audio == "no" then
 if not lang then
-return "⭐️*Mυтє Aυ∂ισ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Erasing songs is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Aυ∂ισ* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Erasing songs is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن اهنگ فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن آهنگ فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن اهنگ فعال نیست🔊\n👤\nℹ️پاک کردن آهنگ فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_audio"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "⭐️*Mυтє Aυ∂ισ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear disabled songs and write songs is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє Aυ∂ισ* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear disabled songs and write songs is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️بیصدا کردن اهنگ غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن آهنگ غیر فعال شد و  ارسال آهنگ ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️بیصدا کردن اهنگ غیر فعال شد🔊\n👤\nℹ️پاک کردن آهنگ غیر فعال شد و  ارسال آهنگ ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 end
 end
 end
@@ -2155,26 +2155,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_voice = data[tostring(target)]["settings"]["mute_voice"] 
 if mute_voice == "yes" then
 if not lang then
- return "⭐️*Mυтє Vσιcє* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Send Weiss [sound] was already active, and is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Vσιcє* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Send Weiss [sound] was already active, and is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن صدا (وویس)  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️ارسال ویس [صدا] از قبل فعال بود و  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن صدا (وویس)  از قبل فعال است\n👤\nℹ️ارسال ویس [صدا] از قبل فعال بود و  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_voice"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Vσιcє* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Send Weiss [sound] is enabled it will write Vis [sound] is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Vσιcє* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Send Weiss [sound] is enabled it will write Vis [sound] is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن صدا (وویس)  فعال شد\n➖➖➖➖➖➖➖\nℹ️ارسال ویس [صدا] فعال شد از این پس ارسال ویس [صدا] ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن صدا (وویس)  فعال شد\n👤\nℹ️ارسال ویس [صدا] فعال شد از این پس ارسال ویس [صدا] ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2184,26 +2184,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local mute_voice = data[tostring(target)]["settings"]["mute_voice"]
  if mute_voice == "no" then
 if not lang then
-return "⭐️*Mυтє Vσιcє* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Send Weiss [sound] is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Vσιcє* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Send Weiss [sound] is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن صدا (وویس) فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️ارسال ویس [صدا] فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن صدا (وویس) فعال نیست🔊\n👤\nℹ️ارسال ویس [صدا] فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_voice"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "⭐️*Mυтє Vσιcє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Send Weiss [sound] is disabled and is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Vσιcє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Send Weiss [sound] is disabled and is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن صدا (وویس) غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️ارسال ویس [صدا] غیر فعال شد و  ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن صدا (وویس) غیر فعال شد🔊\n👤\nℹ️ارسال ویس [صدا] غیر فعال شد و  ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2213,26 +2213,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_sticker = data[tostring(target)]["settings"]["mute_sticker"] 
 if mute_sticker == "yes" then
 if not lang then
- return "⭐️*Mυтє Sтιcкєя* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Send stickers have already been activated and is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Sтιcкєя* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Send stickers have already been activated and is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن استیکر  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️ارسال استیکر از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن استیکر  از قبل فعال است\n👤\nℹ️ارسال استیکر از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_sticker"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Sтιcкєя* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Send this post Send Sticker Sticker activated is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Sтιcкєя* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Send this post Send Sticker Sticker activated is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن استیکر فعال شد\n➖➖➖➖➖➖➖\nℹ️ارسال استیکر فعال شد از این پس ارسال استیکر ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن استیکر فعال شد\n👤\nℹ️ارسال استیکر فعال شد از این پس ارسال استیکر ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2242,26 +2242,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local mute_sticker = data[tostring(target)]["settings"]["mute_sticker"]
  if mute_sticker == "no" then
 if not lang then
-return "⭐️*Mυтє Sтιcкєя* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Send stickers are not active and do not disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Sтιcкєя* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Send stickers are not active and do not disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن استیکر فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️ارسال استیکر فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن استیکر فعال نیست🔊\n👤\nℹ️ارسال استیکر فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_sticker"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "⭐️*Mυтє Sтιcкєя* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear sticker disabled is not prohibited and send stickers\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє Sтιcкєя* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear sticker disabled is not prohibited and send stickers\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️بیصدا کردن استیکر غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن استیکر غیر فعال شد و ارسال استیکر ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن استیکر غیر فعال شد🔊\n👤\nℹ️پاک کردن استیکر غیر فعال شد و ارسال استیکر ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end 
 end
 end
@@ -2271,26 +2271,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_contact = data[tostring(target)]["settings"]["mute_contact"] 
 if mute_contact == "yes" then
 if not lang then
- return "⭐️*Mυтє Cσηтαcт* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️To send a contact [number] already active, and is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Cσηтαcт* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️To send a contact [number] already active, and is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن ارسال مخاطب  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️ارسال مخاطب [شماره] از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن ارسال مخاطب  از قبل فعال است\n👤\nℹ️ارسال مخاطب [شماره] از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_contact"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Cσηтαcт* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️To send a contact [number] was activated after this is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Cσηтαcт* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️To send a contact [number] was activated after this is prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن ارسال مخاطب فعال شد\n➖➖➖➖➖➖➖\nℹ️ارسال مخاطب [شماره] فعال شد از این پس  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن ارسال مخاطب فعال شد\n👤\nℹ️ارسال مخاطب [شماره] فعال شد از این پس  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2300,26 +2300,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local mute_contact = data[tostring(target)]["settings"]["mute_contact"]
  if mute_contact == "no" then
 if not lang then
-return "⭐️*Mυтє Cσηтαcт* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️To send a contact [number] is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Cσηтαcт* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️To send a contact [number] is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن ارسال مخطب فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️ارسال مخاطب [شماره] فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن ارسال مخطب فعال نیست🔊\n👤\nℹ️ارسال مخاطب [شماره] فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_contact"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Cσηтαcт* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear audience [number] is disabled and write the contact [number] is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Cσηтαcт* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear audience [number] is disabled and write the contact [number] is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن ارسال مخاطب غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن مخاطب [شماره] غیر فعال شد و ارسال مخاطب [شماره] ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن ارسال مخاطب غیر فعال شد🔊\n👤\nℹ️پاک کردن مخاطب [شماره] غیر فعال شد و ارسال مخاطب [شماره] ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2329,26 +2329,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_forward = data[tostring(target)]["settings"]["mute_forward"] 
 if mute_forward == "yes" then
 if not lang then
- return "⭐️*Mυтє Fσяωαя∂* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear message forwarding is already active, and is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Fσяωαя∂* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Clear message forwarding is already active, and is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن فوروارد از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن پیام فوروارد شده از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن فوروارد از قبل فعال است\n👤\nℹ️پاک کردن پیام فوروارد شده از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_forward"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Fσяωαя∂* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear forwarded message is activated and henceforth banned\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Fσяωαя∂* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clear forwarded message is activated and henceforth banned\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن فوروارد فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن پیام فوروارد شده فعال شد و از این پس  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن فوروارد فعال شد\n👤\nℹ️پاک کردن پیام فوروارد شده فعال شد و از این پس  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2358,26 +2358,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local mute_forward = data[tostring(target)]["settings"]["mute_forward"]
  if mute_forward == "no" then
 if not lang then
-return "⭐️*Mυтє Fσяωαя∂* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear forwarded message is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє Fσяωαя∂* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Clear forwarded message is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
-return "⭐️بیصدا کردن فوروارد فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن پیام فوروارد شده فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن فوروارد فعال نیست🔊\n👤\nℹ️پاک کردن پیام فوروارد شده فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end 
 else 
 data[tostring(target)]["settings"]["mute_forward"] = "no"
  save_data(_config.moderation.data, data)
 if not lang then 
-return "⭐️*Mυтє Fσяωαя∂* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Disabled Clean forwarded and forwarded message is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Fσяωαя∂* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Disabled Clean forwarded and forwarded message is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن فوروارد غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن فوروارد غیر فعال شد و ارسال پیام فوروارد شده ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن فوروارد غیر فعال شد🔊\n👤\nℹ️پاک کردن فوروارد غیر فعال شد و ارسال پیام فوروارد شده ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2387,26 +2387,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_location = data[tostring(target)]["settings"]["mute_location"] 
 if mute_location == "yes" then
 if not lang then
- return "⭐️*Mυтє Lσcαтιση* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Send location is already active, and is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Lσcαтιση* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Send location is already active, and is forbidden\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن موقعیت از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️ارسال مکان از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن موقعیت از قبل فعال است\n👤\nℹ️ارسال مکان از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_location"] = "yes" 
 save_data(_config.moderation.data, data)
 if not lang then
- return "⭐️*Mυтє Lσcαтιση* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear the Send location is activated and henceforth banned\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Lσcαтιση* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clear the Send location is activated and henceforth banned\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
- return "⭐️بیصدا کردن موقعیت فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن ارسال مکان فعال شد و از این پس  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن موقعیت فعال شد\n👤\nℹ️پاک کردن ارسال مکان فعال شد و از این پس  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2416,26 +2416,26 @@ local hash = "gp_lang:"..msg.chat_id_
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local mute_location = data[tostring(target)]["settings"]["mute_location"]
  if mute_location == "no" then
 if not lang then
-return "⭐️*Mυтє Lσcαтιση* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Send the place is clean and does not disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Lσcαтιση* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Send the place is clean and does not disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن موقعیت فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن ارسال مکان فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن موقعیت فعال نیست🔊\n👤\nℹ️پاک کردن ارسال مکان فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_location"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Lσcαтιση* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear was sent off location's position is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Lσcαтιση* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear was sent off location's position is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن موقعیت غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن ارسال مکان غیر فعال شد و ارسال مکان ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن موقعیت غیر فعال شد🔊\n👤\nℹ️پاک کردن ارسال مکان غیر فعال شد و ارسال مکان ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2445,18 +2445,18 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_document = data[tostring(target)]["settings"]["mute_document"] 
 if mute_document == "yes" then
 if not lang then
- return "⭐️*Mυтє Dσcυмєηт* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear active, and is forbidden to send files\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Dσcυмєηт* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Clear active, and is forbidden to send files\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن اسناد  از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن ارسال فایل از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن اسناد  از قبل فعال است\n👤\nℹ️پاک کردن ارسال فایل از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_document"] = "yes" 
@@ -2474,26 +2474,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end 
 
 local mute_document = data[tostring(target)]["settings"]["mute_document"]
  if mute_document == "no" then
 if not lang then
-return "⭐️*Mυтє Dσcυмєηт* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Delete the file upload is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Dσcυмєηт* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Delete the file upload is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 elseif lang then
-return "⭐️بیصدا کردن اسناد فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن ارسال فایل فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن اسناد فعال نیست🔊\n👤\nℹ️پاک کردن ارسال فایل فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else 
 data[tostring(target)]["settings"]["mute_document"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє Dσcυмєηт* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear disabled file uploads's position is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
+return "⭐️*Mυтє Dσcυмєηт* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear disabled file uploads's position is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*" 
 else
-return "⭐️بیصدا کردن اسناد غیر فعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن ارسال فایل غیر فعال شد و ارسال مکان ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن اسناد غیر فعال شد🔊\n👤\nℹ️پاک کردن ارسال فایل غیر فعال شد و ارسال مکان ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2503,26 +2503,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_tgservice = data[tostring(target)]["settings"]["mute_tgservice"] 
 if mute_tgservice == "yes" then
 if not lang then
- return "⭐️*Mυтє TgSєяνιcє* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear telegram service is already active, and is forbidden\n➖➖➖➖➖➖➖\nTelegram for new updates may take place if the robot is the group's chief director for admins will not work\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє TgSєяνιcє* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Clear telegram service is already active, and is forbidden\n👤\nTelegram for new updates may take place if the robot is the group's chief director for admins will not work\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن خدمات تلگرام از قبل فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن خدمات تلگرام از قبل فعال است و ممنوع میباشد\n➖➖➖➖➖➖➖\nبه خاطر ابدیت جدید تلگرام این امکان زمانی ممکن است که ربات مدیر اصلی گروه باشد و برای ادمین ها کارساز نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن خدمات تلگرام از قبل فعال است\n👤\nℹ️پاک کردن خدمات تلگرام از قبل فعال است و ممنوع میباشد\n👤\nبه خاطر ابدیت جدید تلگرام این امکان زمانی ممکن است که ربات مدیر اصلی گروه باشد و برای ادمین ها کارساز نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_tgservice"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє TgSєяνιcє* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clear telegram service is activated and henceforth banned\n➖➖➖➖➖➖➖\nTelegram for new updates may take place if the robot is the group's chief director for admins will not work\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє TgSєяνιcє* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clear telegram service is activated and henceforth banned\n👤\nTelegram for new updates may take place if the robot is the group's chief director for admins will not work\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️بیصدا کردن خدمات تلگرام  فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن خدمات تلگرام فعال شد و از این پس  ممنوع میباشد\n➖➖➖➖➖➖➖\nبه خاطر ابدیت جدید تلگرام این امکان زمانی ممکن است که ربات مدیر اصلی گروه باشد و برای ادمین ها کارساز نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن خدمات تلگرام  فعال شد\n👤\nℹ️پاک کردن خدمات تلگرام فعال شد و از این پس  ممنوع میباشد\n👤\nبه خاطر ابدیت جدید تلگرام این امکان زمانی ممکن است که ربات مدیر اصلی گروه باشد و برای ادمین ها کارساز نیست\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2532,26 +2532,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local mute_tgservice = data[tostring(target)]["settings"]["mute_tgservice"]
  if mute_tgservice == "no" then
 if not lang then
-return "⭐️*Mυтє TgSєяνιcє* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear telegram service is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє TgSєяνιcє* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Clear telegram service is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
-return "⭐️بیصدا کردن خدمات تلگرام فعال نیست🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن خدمات تلگرام فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن خدمات تلگرام فعال نیست🔊\n👤\nℹ️پاک کردن خدمات تلگرام فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end 
 else 
 data[tostring(target)]["settings"]["mute_tgservice"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє TgSєяνιcє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clear telegram services were disabled and telegram services is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє TgSєяνιcє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clear telegram services were disabled and telegram services is not prohibited\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️بیصدا کردن خدمات تلگرام  غیرفعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن خدمات تلگرام غیر فعال شد و خدمات تلگرام ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن خدمات تلگرام  غیرفعال شد🔊\n👤\nℹ️پاک کردن خدمات تلگرام غیر فعال شد و خدمات تلگرام ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end 
 end
 end
@@ -2562,26 +2562,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+ return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 
 local mute_keyboard = data[tostring(target)]["settings"]["mute_keyboard"] 
 if mute_keyboard == "yes" then
 if not lang then
- return "⭐️*Mυтє Kєувσαя∂* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clean the keyboard is active, and is forbidden to\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Kєувσαя∂* _Iѕ Aℓяєα∂у Eηαвℓє∂_\n👤\nℹ️Clean the keyboard is active, and is forbidden to\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
- return "⭐️بیصدا کردن صفحه کلید فعال است\n➖➖➖➖➖➖➖\nℹ️پاک کردن استفاده از  کیبورد از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️بیصدا کردن صفحه کلید فعال است\n👤\nℹ️پاک کردن استفاده از  کیبورد از قبل فعال است و ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 else
  data[tostring(target)]["settings"]["mute_keyboard"] = "yes" 
 save_data(_config.moderation.data, data) 
 if not lang then
- return "⭐️*Mυтє Kєувσαя∂* _Hαѕ Bєєη Eηαвℓє∂_\n➖➖➖➖➖➖➖\nℹ️Clean the keyboard is activated and henceforth banned\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+ return "⭐️*Mυтє Kєувσαя∂* _Hαѕ Bєєη Eηαвℓє∂_\n👤\nℹ️Clean the keyboard is activated and henceforth banned\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️بیصدا کردن صفحه کلید فعال شد\n➖➖➖➖➖➖➖\nℹ️پاک کردن استفاده از کیبورد فعال شد و از این پس  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن صفحه کلید فعال شد\n👤\nℹ️پاک کردن استفاده از کیبورد فعال شد و از این پس  ممنوع میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 end
@@ -2591,26 +2591,26 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  if not is_mod(msg) then
 if not lang then
-return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants"
+return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants"
 else
-return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end 
 end
 
 local mute_keyboard = data[tostring(target)]["settings"]["mute_keyboard"]
  if mute_keyboard == "no" then
 if not lang then
-return "⭐️*Mυтє Kєувσαя∂* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clean the keyboard is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє Kєувσαя∂* _Iѕ Aℓяєα∂у Dιѕαвℓє∂_🔊\n👤\nℹ️Clean the keyboard is not active and does not need to disable\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 elseif lang then
-return "⭐️بیصدا کردن صفحه کلید غیرفعال است🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن استفاده از کیبورد فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن صفحه کلید غیرفعال است🔊\n👤\nℹ️پاک کردن استفاده از کیبورد فعال نیست و نیازی به غیر فعال کردن ندارد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end 
 else 
 data[tostring(target)]["settings"]["mute_keyboard"] = "no"
  save_data(_config.moderation.data, data) 
 if not lang then
-return "⭐️*Mυтє TgSєяνιcє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n➖➖➖➖➖➖➖\nℹ️Clean the keyboard and the keyboard is not prohibited disabled\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️*Mυтє TgSєяνιcє* _Hαѕ Bєєη Dιѕαвℓє∂_🔊\n👤\nℹ️Clean the keyboard and the keyboard is not prohibited disabled\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 else
-return "⭐️بیصدا کردن صفحه کلید غیرفعال شد🔊\n➖➖➖➖➖➖➖\nℹ️پاک کردن استفاده ازکیبورد غیر فعال شد و کیبورد ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "⭐️بیصدا کردن صفحه کلید غیرفعال شد🔊\n👤\nℹ️پاک کردن استفاده ازکیبورد غیر فعال شد و کیبورد ممنوع نمیباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end 
 end
 end
@@ -2620,9 +2620,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
-  return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n➖➖➖➖➖➖➖\nℹ️Run this command is only for managers and assistants" 
+  return "➡️*Yσυ αяє ησт вσт α∂мιη*⛔️\n👤\nℹ️Run this command is only for managers and assistants" 
 else
- return "➡️_شما مدیر ربات نیستید_⛔️\n➖➖➖➖➖➖➖\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
+ return "➡️_شما مدیر ربات نیستید_⛔️\n👤\nℹ️اجرای این دستور فقط برای مدیران و معاونان است"
 end
 end
 local data = load_data(_config.moderation.data)
@@ -2892,9 +2892,9 @@ if is_owner(msg) then
     save_data(_config.moderation.data, data)
 tdcli.pinChannelMessage(msg.to.id, msg.reply_id, 1)
 if not lang then
-return "*Mєѕѕαgє Hαѕ Bєєη Pιηηє∂*\n➖➖➖➖➖➖➖\n🔖Disable pin [!unpin]"
+return "*Mєѕѕαgє Hαѕ Bєєη Pιηηє∂*\n👤\n🔖Disable pin [!unpin]"
 elseif lang then
-return "_پیام سنجاق شد_✅\n➖➖➖➖➖➖➖\n🔖غیر فعال سازی سنجاق [حذف سنجاق]"
+return "_پیام سنجاق شد_✅\n👤\n🔖غیر فعال سازی سنجاق [حذف سنجاق]"
 end
 elseif not is_owner(msg) then
    return
@@ -2904,9 +2904,9 @@ elseif not is_owner(msg) then
     save_data(_config.moderation.data, data)
 tdcli.pinChannelMessage(msg.to.id, msg.reply_id, 1)
 if not lang then
-return "*Mєѕѕαgє Hαѕ Bєєη Pιηηє∂*\n➖➖➖➖➖➖➖\n🔖Disable pin [!unpin]"
+return "*Mєѕѕαgє Hαѕ Bєєη Pιηηє∂*\n👤\n🔖Disable pin [!unpin]"
 elseif lang then
-return "_پیام سنجاق شد_✅\n➖➖➖➖➖➖➖\n🔖غیر فعال سازی سنجاق [حذف سنجاق]"
+return "_پیام سنجاق شد_✅\n👤\n🔖غیر فعال سازی سنجاق [حذف سنجاق]"
 end
 end
 end
@@ -2916,9 +2916,9 @@ local lock_pin = data[tostring(msg.to.id)]["settings"]["lock_pin"]
 if is_owner(msg) then
 tdcli.unpinChannelMessage(msg.to.id)
 if not lang then
-return "*Pιη мєѕѕαgє нαѕ вєєη υηριηηє∂*\n➖➖➖➖➖➖➖\n🔖Activation pin [!pin]"
+return "*Pιη мєѕѕαgє нαѕ вєєη υηριηηє∂*\n👤\n🔖Activation pin [!pin]"
 elseif lang then
-return "پیام سنجاق شده پاک شد✅\n➖➖➖➖➖➖➖\n🔖فعال سازی سنجاق [سنجاق]"
+return "پیام سنجاق شده پاک شد✅\n👤\n🔖فعال سازی سنجاق [سنجاق]"
 end
 elseif not is_owner(msg) then
    return 
@@ -2926,9 +2926,9 @@ elseif not is_owner(msg) then
  elseif lock_pin == 'no' then
 tdcli.unpinChannelMessage(msg.to.id)
 if not lang then
-return "*Pιη мєѕѕαgє нαѕ вєєη υηριηηє∂*\n➖➖➖➖➖➖➖\n🔖Activation pin [!pin]"
+return "*Pιη мєѕѕαgє нαѕ вєєη υηριηηє∂*\n👤\n🔖Activation pin [!pin]"
 elseif lang then
-return "پیام سنجاق شده پاک شد✅\n➖➖➖➖➖➖➖\n🔖فعال سازی سنجاق [سنجاق]"
+return "پیام سنجاق شده پاک شد✅\n👤\n🔖فعال سازی سنجاق [سنجاق]"
 end
 end
 end
@@ -3328,9 +3328,9 @@ if matches[1] == 'newlink' and is_mod(msg) or matches[1] == 'لینک جدید' 
     data[tostring(chat)]['rules'] = matches[2]
     save_data(_config.moderation.data, data)
      if not lang then
-    return "*Group rules* _has been set_\n➖➖➖➖➖➖➖\n🔖New laws [!setrules]"
+    return "*Group rules* _has been set_\n👤\n🔖New laws [!setrules]"
    else 
-  return "قوانین گروه ثبت شد\n➖➖➖➖➖➖➖\n🔖تنظیم قوانین جدید [تنظیم قوانین]"
+  return "قوانین گروه ثبت شد\n👤\n🔖تنظیم قوانین جدید [تنظیم قوانین]"
    end
   end
   if matches[1] == "rules" or matches[1] == "قوانین" and matches[2] then
@@ -3338,7 +3338,7 @@ if matches[1] == 'newlink' and is_mod(msg) or matches[1] == 'لینک جدید' 
    if not lang then
      rules = "ℹNO Rυℓєѕ 🔖New laws [!setrules]"
     elseif lang then
-       rules = "قوانینی وجود ندارد\n➖➖➖➖➖➖➖\n🔖تنظیم قوانین جدید [تنظیم قوانین]"
+       rules = "قوانینی وجود ندارد\n👤\n🔖تنظیم قوانین جدید [تنظیم قوانین]"
  end
         else
      rules = "*Group Rules :*\n"..data[tostring(chat)]['rules']
@@ -3370,9 +3370,9 @@ tdcli_function ({
       if matches[2] == 'mods' or matches[2] == 'معاون ها' then
         if next(data[tostring(chat)]['mods']) == nil then
             if not lang then
-          return "_Nσ_ *мσ∂єяαтσяѕ* _ιη тнιѕ gяσυρ_\n➖➖➖➖➖➖➖\n🔖Deputy setting for [!promote]"
+          return "_Nσ_ *мσ∂єяαтσяѕ* _ιη тнιѕ gяσυρ_\n👤\n🔖Deputy setting for [!promote]"
              else
-                return "هیچ معاونی برای ربات در این گروه انتخاب نشده است\n➖➖➖➖➖➖➖\n🔖تنظیم معاون برای گروه [ترفیع]"
+                return "هیچ معاونی برای ربات در این گروه انتخاب نشده است\n👤\n🔖تنظیم معاون برای گروه [ترفیع]"
         end
             end
         for k,v in pairs(data[tostring(chat)]['mods']) do
@@ -3380,17 +3380,17 @@ tdcli_function ({
           save_data(_config.moderation.data, data)
         end
             if not lang then
-        return "_Aℓℓ_ *мσ∂єяαтσяѕ* _нαѕ вєєη ∂ємσтє∂_\n➖➖➖➖➖➖➖\n🔖Deputy setting for [!promote]"
+        return "_Aℓℓ_ *мσ∂єяαтσяѕ* _нαѕ вєєη ∂ємσтє∂_\n👤\n🔖Deputy setting for [!promote]"
           else
-            return "تمام مدیران ربات در گروه تنزیل مقام شدند\n➖➖➖➖➖➖➖\n🔖تنظیم معاون برای گروه [ترفیع]"
+            return "تمام مدیران ربات در گروه تنزیل مقام شدند\n👤\n🔖تنظیم معاون برای گروه [ترفیع]"
       end
          end
       if matches[2] == 'filterlist' or matches[2] == 'لیست فیلتر' then
         if next(data[tostring(chat)]['filterlist']) == nil then
      if not lang then
-          return "*Fιℓтєяє∂ ωσя∂ѕ ℓιѕт* _ιѕ ємρту_\n➖➖➖➖➖➖➖\n🔖Filter the word [!filter]"
+          return "*Fιℓтєяє∂ ωσя∂ѕ ℓιѕт* _ιѕ ємρту_\n👤\n🔖Filter the word [!filter]"
          else
-          return "_لیست کلمات فیلتر شده خالی است_\n➖➖➖➖➖➖➖\n🔖فیلتر کردن کلمه [فیلتر]"
+          return "_لیست کلمات فیلتر شده خالی است_\n👤\n🔖فیلتر کردن کلمه [فیلتر]"
              end
         end
         for k,v in pairs(data[tostring(chat)]['filterlist']) do
@@ -3398,50 +3398,50 @@ tdcli_function ({
           save_data(_config.moderation.data, data)
         end
        if not lang then
-        return "*Fιℓтєяє∂ ωσя∂ѕ ℓιѕт* _нαѕ вєєη cℓєαηє∂_\n➖➖➖➖➖➖➖\n🔖Filter the word [!filter]"
+        return "*Fιℓтєяє∂ ωσя∂ѕ ℓιѕт* _нαѕ вєєη cℓєαηє∂_\n👤\n🔖Filter the word [!filter]"
            else
-        return "_لیست کلمات فیلتر شده پاک شد_\n➖➖➖➖➖➖➖\n🔖فیلتر کردن کلمه [فیلتر]"
+        return "_لیست کلمات فیلتر شده پاک شد_\n👤\n🔖فیلتر کردن کلمه [فیلتر]"
            end
       end
       if matches[2] == 'rules' or matches[2] == 'قوانین' then
         if not data[tostring(chat)]['rules'] then
             if not lang then
-          return "_Nσ_ *яυℓєѕ* _αναιℓαвℓє_\n➖➖➖➖➖➖➖\n🔖New laws [!setrules]"
+          return "_Nσ_ *яυℓєѕ* _αναιℓαвℓє_\n👤\n🔖New laws [!setrules]"
              else
-               return "قوانین برای گروه ثبت نشده است\n➖➖➖➖➖➖➖\n🔖تنظیم قوانین جدید [تنظیک قوانین]"
+               return "قوانین برای گروه ثبت نشده است\n👤\n🔖تنظیم قوانین جدید [تنظیک قوانین]"
              end
         end
           data[tostring(chat)]['rules'] = nil
           save_data(_config.moderation.data, data)
              if not lang then
-        return "*Gяσυρ яυℓєѕ* _нαѕ вєєη cℓєαηє∂_\n➖➖➖➖➖➖➖\n🔖New laws [!setrules]"
+        return "*Gяσυρ яυℓєѕ* _нαѕ вєєη cℓєαηє∂_\n👤\n🔖New laws [!setrules]"
           else
-            return "قوانین گروه پاک شد\n➖➖➖➖➖➖➖\n🔖تنظیم قوانین جدید [تنظیک قوانین]"
+            return "قوانین گروه پاک شد\n👤\n🔖تنظیم قوانین جدید [تنظیک قوانین]"
       end
        end
       if matches[2] == 'welcome' or  matches[2] == 'خوشامد گویی' then
         if not data[tostring(chat)]['setwelcome'] then
             if not lang then
-          return "*Wєℓcσмє Mєѕѕαgє ησт ѕєт*\n➖➖➖➖➖➖➖\n🔖Set the welcome message [!setwelcome]"
+          return "*Wєℓcσмє Mєѕѕαgє ησт ѕєт*\n👤\n🔖Set the welcome message [!setwelcome]"
              else
-               return "پیام خوشآمد گویی ثبت نشده است\n➖➖➖➖➖➖➖\n🔖تنظیم پیام خوش امد گویی [تنظیم خوشامد گویی]"
+               return "پیام خوشآمد گویی ثبت نشده است\n👤\n🔖تنظیم پیام خوش امد گویی [تنظیم خوشامد گویی]"
              end
         end
           data[tostring(chat)]['setwelcome'] = nil
           save_data(_config.moderation.data, data)
              if not lang then
-        return "*Wєℓcσмє мєѕѕαgє* _нαѕ вєєη cℓєαηє∂_\n➖➖➖➖➖➖➖\n🔖Set the welcome message [!setwelcome]"
+        return "*Wєℓcσмє мєѕѕαgє* _нαѕ вєєη cℓєαηє∂_\n👤\n🔖Set the welcome message [!setwelcome]"
           else
-            return "پیام خوشآمد گویی پاک شد\n➖➖➖➖➖➖➖\n🔖تنظیم پیام خوش امد گویی [تنظیم خوشامد گویی]"
+            return "پیام خوشآمد گویی پاک شد\n👤\n🔖تنظیم پیام خوش امد گویی [تنظیم خوشامد گویی]"
       end
        end
       if matches[2] == 'about' or matches[2] == 'درباره گروه' then
         if msg.to.type == "chat" then
         if not data[tostring(chat)]['about'] then
             if not lang then
-          return "_Nσ_ *∂єѕcяιρтιση* _αναιℓαвℓє_\n➖➖➖➖➖➖➖\n🔖Settings About Group [!setabout]"
+          return "_Nσ_ *∂єѕcяιρтιση* _αναιℓαвℓє_\n👤\n🔖Settings About Group [!setabout]"
             else
-              return "پیامی مبنی بر درباره گروه ثبت نشده است\n➖➖➖➖➖➖➖\n🔖تنظیم درباره گروه [تنظیم درباره]"
+              return "پیامی مبنی بر درباره گروه ثبت نشده است\n👤\n🔖تنظیم درباره گروه [تنظیم درباره]"
           end
         end
           data[tostring(chat)]['about'] = nil
@@ -3450,9 +3450,9 @@ tdcli_function ({
    tdcli.changeChannelAbout(chat, "", dl_cb, nil)
              end
              if not lang then
-        return "*Gяσυρ ∂єѕcяιρтιση* _нαѕ вєєη cℓєαηє∂_\n➖➖➖➖➖➖➖\n🔖Settings About Group [!setabout]"
+        return "*Gяσυρ ∂єѕcяιρтιση* _нαѕ вєєη cℓєαηє∂_\n👤\n🔖Settings About Group [!setabout]"
            else
-              return "پیام مبنی بر درباره گروه پاک شد\n➖➖➖➖➖➖➖\n🔖تنظیم درباره گروه [تنظیم درباره]"
+              return "پیام مبنی بر درباره گروه پاک شد\n👤\n🔖تنظیم درباره گروه [تنظیم درباره]"
              end
         end
         end
@@ -3460,9 +3460,9 @@ tdcli_function ({
       if matches[2] == 'owners' or matches[2] == 'مدیر' then
         if next(data[tostring(chat)]['owners']) == nil then
              if not lang then
-          return "_Nσ_ *σωηєяѕ* _ιη тнιѕ gяσυρ_\n➖➖➖➖➖➖➖\n🔖Admin settings for the group [!setowner]"
+          return "_Nσ_ *σωηєяѕ* _ιη тнιѕ gяσυρ_\n👤\n🔖Admin settings for the group [!setowner]"
             else
-                return "مالکی برای گروه انتخاب نشده است\n➖➖➖➖➖➖➖\n🔖تنظیم مدیر برای گروه [تنظیم مدیر]"
+                return "مالکی برای گروه انتخاب نشده است\n👤\n🔖تنظیم مدیر برای گروه [تنظیم مدیر]"
             end
         end
         for k,v in pairs(data[tostring(chat)]['owners']) do
@@ -3470,9 +3470,9 @@ tdcli_function ({
           save_data(_config.moderation.data, data)
         end
             if not lang then
-        return "_Aℓℓ_ *σωηєяѕ* _нαѕ вєєη ∂ємσтє∂_\n➖➖➖➖➖➖➖\n🔖Admin settings for the group [!setowner]"
+        return "_Aℓℓ_ *σωηєяѕ* _нαѕ вєєη ∂ємσтє∂_\n👤\n🔖Admin settings for the group [!setowner]"
            else
-            return "تمامی مالکان گروه تنزیل مقام شدند\n➖➖➖➖➖➖➖\n🔖تنظیم مدیر برای گروه [تنظیم مدیر]"
+            return "تمامی مالکان گروه تنزیل مقام شدند\n👤\n🔖تنظیم مدیر برای گروه [تنظیم مدیر]"
           end
       end
      end
@@ -3488,17 +3488,17 @@ end
     save_data(_config.moderation.data, data)
      end
      if not lang then
-    return "*Gяσυρ ∂єѕcяιρтιση* _нαѕ вєєη ѕєт_\n➖➖➖➖➖➖➖\n🔖Settings About Group [!setabout]"
+    return "*Gяσυρ ∂єѕcяιρтιση* _нαѕ вєєη ѕєт_\n👤\n🔖Settings About Group [!setabout]"
     else
-     return "پیام مبنی بر درباره گروه ثبت شد\n➖➖➖➖➖➖➖\n🔖تنظیم درباره گروه [تنظیم درباره]"
+     return "پیام مبنی بر درباره گروه ثبت شد\n👤\n🔖تنظیم درباره گروه [تنظیم درباره]"
       end
   end
   if matches[1] == "about" and msg.to.type == "chat" or matches[1] == "درباره گروه" and msg.to.type == "chat" then
  if not data[tostring(chat)]['about'] then
      if not lang then
-     about = "_Nσ_ *∂єѕcяιρтιση* _αναιℓαвℓє_\n➖➖➖➖➖➖➖\n🔖Settings About Group [!setabout]"
+     about = "_Nσ_ *∂єѕcяιρтιση* _αναιℓαвℓє_\n👤\n🔖Settings About Group [!setabout]"
       elseif lang then
-      about = "پیامی مبنی بر درباره گروه ثبت نشده است\n➖➖➖➖➖➖➖\n🔖تنظیم درباره گروه [تنظیم درباره]"
+      about = "پیامی مبنی بر درباره گروه ثبت نشده است\n👤\n🔖تنظیم درباره گروه [تنظیم درباره]"
        end
         else
      about = "*Group Description :*\n"..data[tostring(chat)]['about']
@@ -3532,10 +3532,10 @@ if matches[1] == "setlang" and is_owner(msg) or matches[1] == "تنظیم زبا
 local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash)
  redis:del(hash)
-return "_Gяσυρ Lαηgυαgє Sєт Tσ:_ EN✅\n➖➖➖➖➖➖➖\n🔖From then call the robot is in english commands\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "_Gяσυρ Lαηgυαgє Sєт Tσ:_ EN✅\n👤\n🔖From then call the robot is in english commands\nby ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
   elseif matches[2] == "fa" then
 redis:set(hash, true)
-return "*زبان گروه تنظیم شد به : فارسی*✅\n➖➖➖➖➖➖➖\n🔖از این به بعد پاسخ ربات به دستورات فارسی میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
+return "*زبان گروه تنظیم شد به : فارسی*✅\n👤\n🔖از این به بعد پاسخ ربات به دستورات فارسی میباشد\nتوسط ☆>*[*@"..check_markdown(msg.from.username or "").."*]*"
 end
 end
 if matches[1] == "help" and is_mod(msg) or  matches[1] == "راهنما" and is_mod(msg) then
@@ -3554,7 +3554,7 @@ _🛡darkplus🛡_
 🖱دستورات فان
 🖱دستورات عمومی و اضافی
 
-➖➖➖➖➖➖
+👤
 راهنمای دستورات انگلیسی:
 🖱*!modhelp*
 🖱برای مدریت گروه
